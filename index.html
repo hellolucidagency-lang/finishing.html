@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trust Estate | تراست إستيت للتشطيبات والديكور الفاخر</title>
-<meta name="description" content="Trust Estate للتشطيبات والديكور - حي الأشجار 6 أكتوبر وزايد - استوديو تصميم معماري ومعاينات مجانية وإشراف هندسي متكامل">
+<meta name="description" content="Trust Estate للتشطيبات والديكور - حي الأشجار 6 أكتوبر وزايد - ألبومات مشروعات تنفيذية وإشراف هندسي متكامل">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -77,45 +77,27 @@
   }
   .wa-pulse { animation: pulse-ring 2s infinite; }
 
-  /* ===== Portfolio Masonry Gallery ===== */
-  #gallery-grid {
-    column-count: 1;
-    column-gap: 1.5rem;
+  /* ===== Album Slider Cards ===== */
+  .album-slide-track {
+    display: flex;
+    transition: transform .5s cubic-bezier(.2,.8,.2,1);
+    height: 100%;
   }
-  @media (min-width: 640px) { #gallery-grid { column-count: 2; } }
-  @media (min-width: 1024px) { #gallery-grid { column-count: 3; } }
+  .album-slide { min-width: 100%; height: 100%; flex-shrink: 0; }
+  .album-slide img { width: 100%; height: 100%; object-cover: cover; object-fit: cover; }
 
-  .project-card {
-    break-inside: avoid;
-    margin-bottom: 1.5rem;
-    display: block;
+  .album-arrow {
+    background: rgba(11,19,37,.55); backdrop-filter: blur(4px);
+    transition: all .25s ease;
   }
+  .album-arrow:hover { background: #C5A880; color: #0B1325; }
 
-  .project-img-wrap { overflow: hidden; position: relative; }
-  .project-img-wrap img { transition: transform .7s cubic-bezier(.2,.8,.2,1), filter .5s; display: block; width: 100%; }
-  .project-card:hover .project-img-wrap img { transform: scale(1.08); filter: brightness(.7); }
+  .thumb-btn { transition: all .25s ease; opacity: .55; }
+  .thumb-btn.active { opacity: 1; }
+  .thumb-btn.active img { border-color: #C5A880; }
+  .thumb-btn:hover { opacity: 1; }
 
-  .project-overlay {
-    opacity: 0; transition: opacity .4s;
-  }
-  .project-card:hover .project-overlay { opacity: 1; }
-
-  .project-tag {
-    position: absolute; top: 14px; right: 14px;
-    backdrop-filter: blur(6px);
-  }
-
-  /* Filter buttons */
-  .filter-btn { transition: all .35s ease; white-space: nowrap; }
-  .filter-btn.active { background: #C5A880; color: #0B1325; border-color: #C5A880; }
-
-  .project-card.hide { display: none; }
-
-  #lightbox { backdrop-filter: blur(6px); }
   .spec-chip { font-size: 11px; line-height: 1.4; }
-
-  .filter-scroll { -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-  .filter-scroll::-webkit-scrollbar { display: none; }
 
   @media (max-width: 640px) {
     .ribbon { font-size: 10px; padding: 3px 10px; }
@@ -143,7 +125,7 @@
       <nav class="hidden lg:flex items-center gap-8 font-display font-semibold text-sm">
         <a href="#hero" class="hover:text-gold transition-colors">الرئيسية</a>
         <a href="#packages" class="hover:text-gold transition-colors">الباقات</a>
-        <a href="#gallery" class="hover:text-gold transition-colors">استوديو التصميم</a>
+        <a href="#gallery" class="hover:text-gold transition-colors">ألبومات المشروعات</a>
         <a href="#warranty" class="hover:text-gold transition-colors">الضمانات</a>
         <a href="#footer" class="hover:text-gold transition-colors">تواصل معنا</a>
       </nav>
@@ -166,7 +148,7 @@
     <nav class="flex flex-col p-4 gap-3 font-display font-semibold text-sm">
       <a href="#hero" class="py-2 border-b border-white/5">الرئيسية</a>
       <a href="#packages" class="py-2 border-b border-white/5">الباقات</a>
-      <a href="#gallery" class="py-2 border-b border-white/5">استوديو التصميم</a>
+      <a href="#gallery" class="py-2 border-b border-white/5">ألبومات المشروعات</a>
       <a href="#warranty" class="py-2 border-b border-white/5">الضمانات</a>
       <a href="#footer" class="py-2">تواصل معنا</a>
     </nav>
@@ -204,7 +186,7 @@
           <i class="fa-solid fa-ruler-combined"></i> اطلب معاينة مجانية
         </a>
         <a href="#gallery" class="border border-gold/40 text-white font-display font-semibold px-7 py-4 rounded-lg text-sm md:text-base hover:border-gold hover:text-gold transition-all flex items-center gap-2">
-          <i class="fa-solid fa-compass-drafting"></i> تصفح استوديو التصميم
+          <i class="fa-solid fa-images"></i> تصفح ألبومات المشروعات
         </a>
       </div>
 
@@ -297,67 +279,22 @@
   </div>
 </section>
 
-<!-- ============ GALLERY / ARCHITECTURAL PORTFOLIO & LOOKBOOK ============ -->
+<!-- ============ GALLERY / INTERACTIVE PROJECT ALBUMS ============ -->
 <section id="gallery" class="py-20 md:py-28 bg-navy relative">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <div class="text-center mb-10">
+    <div class="text-center mb-14">
       <span class="signature-divider mb-4"><span class="line"></span><span class="diamond"></span><span class="line rev"></span></span>
-      <h2 class="font-display font-black text-3xl md:text-4xl text-white mb-4">استوديو التصميم المعماري</h2>
-      <p class="text-gray-400 max-w-2xl mx-auto mb-3">Architectural Portfolio &amp; Lookbook — منصة إلهام تجمع أرقى الأنماط التصميمية المنفذة بمعايير هندسية دقيقة</p>
-      <p class="font-display text-gold text-sm md:text-base max-w-3xl mx-auto border-t border-gold/15 pt-4 mt-4">
-        كل نمط معروض يتم تعديل مخططاته التنفيذية لتناسب مساحة وحدتك وميزانيتك بدقة عبر فريقنا الهندسي
-      </p>
+      <h2 class="font-display font-black text-3xl md:text-4xl text-white mb-4">ألبومات المشروعات الهندسية</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">كل ألبوم يوثّق مشروعاً منفذاً بالكامل — تصفّح زواياه وخاماته صورة بصورة، وكل بند تنفيذي مطابق تماماً لما تراه</p>
     </div>
 
-    <!-- Filter Bar -->
-    <div class="filter-scroll flex md:flex-wrap md:justify-center gap-3 mb-12 overflow-x-auto pb-2">
-      <button data-filter="all" class="filter-btn active border border-gold/40 text-gold font-display font-semibold text-xs md:text-sm px-5 py-2.5 rounded-full shrink-0">
-        كافة الأعمال
-      </button>
-      <button data-filter="living" class="filter-btn border border-gold/40 text-gold font-display font-semibold text-xs md:text-sm px-5 py-2.5 rounded-full shrink-0">
-        الاستقبال والريسبشن
-      </button>
-      <button data-filter="master" class="filter-btn border border-gold/40 text-gold font-display font-semibold text-xs md:text-sm px-5 py-2.5 rounded-full shrink-0">
-        الأجنحة الرئيسية
-      </button>
-      <button data-filter="kitchen" class="filter-btn border border-gold/40 text-gold font-display font-semibold text-xs md:text-sm px-5 py-2.5 rounded-full shrink-0">
-        المطابخ وأنظمة التخزين
-      </button>
-      <button data-filter="bathroom" class="filter-btn border border-gold/40 text-gold font-display font-semibold text-xs md:text-sm px-5 py-2.5 rounded-full shrink-0">
-        الحمامات والسبا المنزلي
-      </button>
-      <button data-filter="closet" class="filter-btn border border-gold/40 text-gold font-display font-semibold text-xs md:text-sm px-5 py-2.5 rounded-full shrink-0">
-        غرف الملابس
-      </button>
-    </div>
-
-    <!-- Masonry Gallery Grid -->
-    <div id="gallery-grid"></div>
-
-    <div class="text-center mt-4 text-gray-500 text-xs" id="empty-state" style="display:none">
-      لا توجد نماذج ضمن هذا التصنيف حالياً
+    <!-- Albums Grid -->
+    <div id="albums-grid" class="grid md:grid-cols-2 gap-8 md:gap-10">
+      <!-- Injected by JS from ALBUMS_DATA -->
     </div>
   </div>
 </section>
-
-<!-- Lightbox -->
-<div id="lightbox" class="fixed inset-0 z-[100] bg-black/85 hidden items-center justify-center p-4">
-  <button id="lightbox-close" class="absolute top-5 left-5 md:top-8 md:left-8 text-white w-10 h-10 rounded-full border border-white/30 flex items-center justify-center hover:border-gold hover:text-gold transition-all">
-    <i class="fa-solid fa-xmark"></i>
-  </button>
-  <div class="max-w-3xl w-full">
-    <img id="lightbox-img" src="" alt="" class="w-full max-h-[62vh] object-cover rounded-xl border border-gold/30">
-    <div class="mt-5 text-center">
-      <h4 id="lightbox-title" class="font-display font-bold text-white text-lg md:text-xl"></h4>
-      <p id="lightbox-desc" class="text-gray-400 text-sm mt-2 max-w-2xl mx-auto leading-loose"></p>
-      <a id="lightbox-wa" href="#" target="_blank" rel="noopener"
-         class="inline-flex items-center gap-2 mt-5 bg-gold text-navy font-display font-bold px-6 py-3 rounded-lg hover:bg-gold-light transition-all text-sm">
-        <i class="fa-brands fa-whatsapp"></i> طلب استشارة هندسية لتطبيق هذا النمط
-      </a>
-    </div>
-  </div>
-</div>
 
 <!-- ============ WARRANTY ============ -->
 <section id="warranty" class="py-20 md:py-28 bg-navy-900 relative overflow-hidden">
@@ -477,192 +414,216 @@
 
 <script>
 /* ==========================================================
-   PORTFOLIO DATA — استوديو التصميم المعماري
-   مهيّأ مستقبلاً لسحب المشروعات ديناميكياً من ملف CSV بدلاً من
-   المصفوفة الثابتة أدناه. مثال لدالة تحميل مستقبلية:
+   ALBUMS DATA — ألبومات المشروعات الهندسية التفاعلية
+   كل صورة داخل كل ألبوم مطابقة تماماً للبند التنفيذي المكتوب
+   بجانبها بنفس الترتيب (images[i] <-> captions[i]).
+   مهيّأ مستقبلاً للاستبدال بجلب البيانات من CSV:
 
-   async function loadPortfolioFromCSV(url){
+   async function loadAlbumsFromCSV(url){
      const res = await fetch(url);
      const text = await res.text();
      const rows = text.trim().split("\n").slice(1);
      return rows.map(row => {
-       const [id, category, title, image, specs] = row.split(",");
-       return { id, category, title, image, specs: specs.split("|") };
+       const [id, title, tag, images, captions, specs] = row.split(";");
+       return { id, title, tag, images: images.split("|"), captions: captions.split("|"), specs: specs.split("|") };
      });
    }
-   // ثم: PORTFOLIO_DATA = await loadPortfolioFromCSV('data/portfolio.csv');
    ========================================================== */
 
-const PORTFOLIO_DATA = [
+const ALBUMS_DATA = [
   {
-    id: 1, category: 'living', title: 'ريسبشن Contemporary Chic',
-    image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80',
-    specs: ['تجاليد جدارية رخام إيطالي Silver Shadow', 'شرائح خشبية معالجة WPC', 'إضاءة Linear LED غير مباشرة', 'أرضيات بورسلين كبير الحجم Slab Porcelain']
+    id: 'bathroom-hotel',
+    title: 'الحمام الفندقي وأنظمة الدفن',
+    tag: 'Hotel-Style Bathroom',
+    images: [
+      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80',
+    ],
+    captions: [
+      'كابينة الشاور سيكوريت مصنفر والنيش الحائطي',
+      'زاوية الحوض والرخام',
+      'تفاصيل الإضاءة المخفية',
+      'زاوية الشاور كابين',
+    ],
+    specs: ['كابينة شاور سيكوريت مصنفر', 'نيش حائطي ببروفايل ليد', 'قاعدة معلقة وصندوق طرد دفن Grohe', 'رخام وبورسلين رمادي كبير']
   },
   {
-    id: 2, category: 'living', title: 'صالون Neo-Classic Elegance',
-    image: 'https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=800&q=80',
-    specs: ['بانوهات جدارية هندسية بنسب دقيقة', 'دهانات Jotun Fenomastic بتأثير مخملي مطفأ', 'أسقف معلقة بتشطيبات جبسية فرنسية']
+    id: 'reception-wood',
+    title: 'ريسبشن Contemporary & Wood Slats',
+    tag: 'تجاليد وخامات مركبة',
+    images: [
+      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80',
+    ],
+    captions: [
+      'التجاليد والريسبشن الرئيسي',
+      'زاوية الصالون والإضاءة',
+      'الجدار الديكوري والشاشة',
+      'تفاصيل أسقف بيت النور',
+    ],
+    specs: ['تجاليد WPC بديل خشب', 'بديل رخام أوبن بوك', 'ماجنتيك تراك لايت', 'أرضيات بورسلين 60×120']
   },
   {
-    id: 3, category: 'living', title: 'ليفنج روم Minimalist Loft',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
-    specs: ['مسارات إضاءة مغناطيسية Magnetic Track Lights', 'جدران بتأثير الخرسانة الديكورية Microcement', 'عزل صوتي متقدم']
+    id: 'kitchen-modern',
+    title: 'المطبخ المودرن والجزيرة الرخامية',
+    tag: 'Contemporary Kitchen',
+    images: [
+      'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=80',
+    ],
+    captions: [
+      'المطبخ والجزيرة الوسطى',
+      'زاوية الخزائن العلوية والليد',
+      'حوض وأسطح الكوارتز',
+      'زاوية الأجهزة المدمجة',
+    ],
+    specs: ['خزائن أكريليك مطفأة رمادي/أسود', 'أسطح رخام كوارتز مقاوم للبقع', 'إضاءات ليد داخلية', 'مفصلات Blum النمساوية']
   },
   {
-    id: 4, category: 'master', title: 'ماستر روم Warm Organic',
-    image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80',
-    specs: ['أرضيات HDF خشب طبيعي معالج ألماني', 'تجاليد جدارية قماشية مبطنة', 'سيناريوهات إضاءة ذكية مسائية']
-  },
-  {
-    id: 5, category: 'master', title: 'جناح نوم فندقي Modern Luxury',
-    image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=800&q=80',
-    specs: ['رأس سرير ممتد بتطعيمات معدنية Brushed Brass', 'ألوان حيادية مدروسة', 'وحدات إضاءة معلقة مخصصة']
-  },
-  {
-    id: 6, category: 'master', title: 'غرفة نوم هادئة Zen Aesthetic',
-    image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80',
-    specs: ['دهانات نقية بدون لمعة', 'ستائر مدمجة في تجاويف السقف Motorized Curtain Recesses']
-  },
-  {
-    id: 7, category: 'bathroom', title: 'حمام فندقي متكامل',
-    image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80',
-    specs: ['كابينة شاور سيكوريت معالج 10مم ضد التكلس', 'تجاويف جدارية مضاءة معزولة IP68', 'أنظمة صرف خطية مدفونة Linear Drains', 'أطقم معلقة وطرد جداري Grohe/Duravit']
-  },
-  {
-    id: 8, category: 'bathroom', title: 'حمام ضيوف Monolithic Dark',
-    image: 'https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=800&q=80',
-    specs: ['أحواض حجرية قائمة بذاتها', 'خلاطات جدارية بلون Gunmetal', 'مرايا ذكية مانعة للضباب وإضاءة محيطية']
-  },
-  {
-    id: 9, category: 'bathroom', title: 'حمام ماستر إسكندنافي',
-    image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=800&q=80',
-    specs: ['بورسلين خشبي مدموج مع أسطح كوارتز بيضاء', 'خلاطات دفن ألمانية', 'أرفف تجميل مدمجة في الرخام']
-  },
-  {
-    id: 10, category: 'kitchen', title: 'مطبخ معاصر بدون مقابض Handleless Matte',
-    image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80',
-    specs: ['خامات بوليمر وأكريليك مقاوم للبصمات', 'أسطح كوارتز مقاومة للحرارة والخدش', 'مفصلات وأنظمة سحب Blum النمساوية']
-  },
-  {
-    id: 11, category: 'kitchen', title: 'مطبخ مفتوح Island Concept',
-    image: 'https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=800&q=80',
-    specs: ['جزيرة وسطى مكسوة بالكوارتز', 'إضاءات موجهة مدمجة', 'تأسيس مخفي للأجهزة والتهوية']
-  },
-  {
-    id: 12, category: 'kitchen', title: 'مطبخ دافئ Classic Wood & Stone',
-    image: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=80',
-    specs: ['قشرة خشب طبيعي معالجة ضد الرطوبة', 'مساحات عمل واسعة', 'إضاءة وظيفية تحت الخزائن']
-  },
-  {
-    id: 13, category: 'closet', title: 'دريسنج روم زجاجية متكاملة',
-    image: 'https://images.unsplash.com/photo-1558997519-83ea9252edf8?auto=format&fit=crop&w=800&q=80',
-    specs: ['قطاعات ألومنيوم رفيعة وزجاج عاكس داكن', 'وحدات LED رأسية بحساسات حركة ذكية', 'تقسيمات خشبية منظمة']
-  },
-  {
-    id: 14, category: 'closet', title: 'دريسنج روم مفتوحة Open Wardrobe',
-    image: 'https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=800&q=80',
-    specs: ['أخشاب طبيعية مع تشطيبات قماشية داخلية', 'إضاءات دافئة 2700K', 'مرايا طولية كاملة']
+    id: 'master-dressing',
+    title: 'جناح الماستر والدريسنج روم',
+    tag: 'Master Suite & Dressing',
+    images: [
+      'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1558997519-83ea9252edf8?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=800&q=80',
+    ],
+    captions: [
+      'غرفة النوم والبانوهات الهندسية',
+      'تفاصيل الهيدبورد والإضاءة الدافئة',
+      'الدريسنج روم الزجاجي',
+      'زاوية المرايا والأرفف',
+    ],
+    specs: ['أرضيات HDF ألماني', 'بانوهات هندسية ناعمة', 'دريسنج روم زجاجي فاميه', 'سيناريوهات إضاءة ذكية']
   },
 ];
 
-const galleryGrid = document.getElementById('gallery-grid');
-const emptyState = document.getElementById('empty-state');
-
-const CATEGORY_LABELS = {
-  living: 'الاستقبال والريسبشن',
-  master: 'الأجنحة الرئيسية',
-  kitchen: 'المطابخ وأنظمة التخزين',
-  bathroom: 'الحمامات والسبا المنزلي',
-  closet: 'غرف الملابس'
-};
+const albumsGrid = document.getElementById('albums-grid');
 
 function buildWaLink(title) {
-  const msg = `مرحباً Trust Estate، أرغب في طلب استشارة هندسية لتطبيق نمط "${title}" مع تعديل المخططات التنفيذية لتناسب مساحة وحدتي وميزانيتي.`;
+  const msg = `مرحباً Trust Estate، أرغب في طلب مقايسة مماثلة لمشروع "${title}" لمساحة وحدتي.`;
   return `https://wa.me/201091293456?text=${encodeURIComponent(msg)}`;
 }
 
-function renderPortfolio(data) {
-  galleryGrid.innerHTML = data.map(item => `
-    <div class="project-card group card-gradient rounded-2xl overflow-hidden border border-gold/10 hover:border-gold/40 transition-all" data-category="${item.category}">
-      <div class="project-img-wrap relative">
-        <span class="project-tag bg-navy/70 text-gold text-[11px] font-display font-semibold px-3 py-1 rounded-full border border-gold/30">${CATEGORY_LABELS[item.category]}</span>
-        <img src="${item.image}" alt="${item.title}" loading="lazy">
-        <div class="project-overlay absolute inset-0 bg-navy/70 flex items-center justify-center">
-          <button class="zoom-btn w-12 h-12 rounded-full bg-gold text-navy flex items-center justify-center hover:scale-110 transition-transform"
-                  data-img="${item.image}" data-title="${item.title}" data-specs="${item.specs.join('|')}">
-            <i class="fa-solid fa-magnifying-glass-plus"></i>
-          </button>
+function renderAlbums(data) {
+  albumsGrid.innerHTML = data.map((album, ai) => `
+    <div class="album-card card-gradient rounded-2xl overflow-hidden border border-gold/10 hover:border-gold/30 transition-all" data-album="${ai}">
+
+      <!-- Slider -->
+      <div class="relative h-72 md:h-80 overflow-hidden">
+        <div class="album-slide-track" id="track-${ai}" style="transform: translateX(0%)">
+          ${album.images.map(img => `
+            <div class="album-slide">
+              <img src="${img}" alt="${album.title}" loading="lazy">
+            </div>
+          `).join('')}
         </div>
+
+        <span class="absolute top-4 right-4 bg-navy/70 text-gold text-[11px] font-display font-semibold px-3 py-1 rounded-full border border-gold/30 backdrop-blur-sm">${album.tag}</span>
+
+        <!-- Caption strip -->
+        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-navy via-navy/70 to-transparent pt-10 pb-3 px-4">
+          <p id="caption-${ai}" class="text-white text-xs md:text-sm font-display font-semibold">${album.captions[0]}</p>
+        </div>
+
+        <!-- Arrows -->
+        <button class="prev-btn album-arrow absolute top-1/2 -translate-y-1/2 right-3 w-9 h-9 rounded-full text-gold flex items-center justify-center" data-album="${ai}">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+        <button class="next-btn album-arrow absolute top-1/2 -translate-y-1/2 left-3 w-9 h-9 rounded-full text-gold flex items-center justify-center" data-album="${ai}">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
       </div>
+
+      <!-- Thumbnails -->
+      <div class="flex gap-2 px-5 pt-4">
+        ${album.images.map((img, i) => `
+          <button class="thumb-btn ${i === 0 ? 'active' : ''}" data-album="${ai}" data-index="${i}">
+            <img src="${img}" alt="thumb" class="w-14 h-14 md:w-16 md:h-16 object-cover rounded-lg border-2 border-transparent">
+          </button>
+        `).join('')}
+      </div>
+
+      <!-- Info -->
       <div class="p-5">
-        <h3 class="font-display font-bold text-white text-base mb-3">${item.title}</h3>
-        <div class="flex flex-wrap gap-2 mb-4">
-          ${item.specs.map(s => `<span class="spec-chip bg-gold/10 text-gold border border-gold/20 px-2.5 py-1 rounded-full">${s}</span>`).join('')}
+        <h3 class="font-display font-bold text-white text-lg mb-3">${album.title}</h3>
+        <div class="flex flex-wrap gap-2 mb-5">
+          ${album.specs.map(s => `<span class="spec-chip bg-gold/10 text-gold border border-gold/20 px-2.5 py-1 rounded-full">${s}</span>`).join('')}
         </div>
-        <a href="${buildWaLink(item.title)}" target="_blank" rel="noopener"
-           class="flex items-center justify-center gap-2 border border-gold/40 text-gold font-display font-semibold text-xs py-2.5 rounded-lg hover:bg-gold hover:text-navy transition-all">
-          <i class="fa-brands fa-whatsapp"></i> طلب استشارة هندسية لتطبيق هذا النمط
+        <a href="${buildWaLink(album.title)}" target="_blank" rel="noopener"
+           class="flex items-center justify-center gap-2 bg-gold text-navy font-display font-bold text-sm py-3 rounded-lg hover:bg-gold-light transition-all">
+          <i class="fa-brands fa-whatsapp"></i> طلب مقايسة مماثلة لمساحة وحدتك
         </a>
       </div>
     </div>
   `).join('');
 
-  bindZoomButtons();
+  bindAlbumControls();
 }
 
-function filterPortfolio(filter) {
-  const cards = document.querySelectorAll('.project-card');
-  let visibleCount = 0;
-  cards.forEach(card => {
-    const match = filter === 'all' || card.dataset.category === filter;
-    card.classList.toggle('hide', !match);
-    if (match) visibleCount++;
+// Track current slide index per album
+const albumState = {};
+
+function goToSlide(albumIndex, slideIndex) {
+  const album = ALBUMS_DATA[albumIndex];
+  const total = album.images.length;
+  const clamped = ((slideIndex % total) + total) % total;
+  albumState[albumIndex] = clamped;
+
+  const track = document.getElementById(`track-${albumIndex}`);
+  track.style.transform = `translateX(${clamped * 100}%)`;
+
+  document.getElementById(`caption-${albumIndex}`).textContent = album.captions[clamped];
+
+  document.querySelectorAll(`.thumb-btn[data-album="${albumIndex}"]`).forEach((btn, i) => {
+    btn.classList.toggle('active', i === clamped);
   });
-  emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
 }
 
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    filterPortfolio(btn.dataset.filter);
-  });
-});
+function bindAlbumControls() {
+  ALBUMS_DATA.forEach((_, ai) => { albumState[ai] = 0; });
 
-// Lightbox
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const lightboxTitle = document.getElementById('lightbox-title');
-const lightboxDesc = document.getElementById('lightbox-desc');
-const lightboxWa = document.getElementById('lightbox-wa');
-
-function bindZoomButtons() {
-  document.querySelectorAll('.zoom-btn').forEach(btn => {
+  document.querySelectorAll('.prev-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const title = btn.dataset.title;
-      lightboxImg.src = btn.dataset.img;
-      lightboxTitle.textContent = title;
-      lightboxDesc.textContent = btn.dataset.specs.split('|').join(' · ');
-      lightboxWa.href = buildWaLink(title);
-      lightbox.classList.remove('hidden');
-      lightbox.classList.add('flex');
-      document.body.style.overflow = 'hidden';
+      const ai = parseInt(btn.dataset.album, 10);
+      goToSlide(ai, (albumState[ai] || 0) + 1); // RTL: right arrow moves forward visually
+    });
+  });
+
+  document.querySelectorAll('.next-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const ai = parseInt(btn.dataset.album, 10);
+      goToSlide(ai, (albumState[ai] || 0) - 1);
+    });
+  });
+
+  document.querySelectorAll('.thumb-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const ai = parseInt(btn.dataset.album, 10);
+      const idx = parseInt(btn.dataset.index, 10);
+      goToSlide(ai, idx);
+    });
+  });
+
+  // Autoplay: advance each album every 5s, pause on hover
+  document.querySelectorAll('.album-card').forEach(card => {
+    const ai = parseInt(card.dataset.album, 10);
+    let timer = setInterval(() => goToSlide(ai, (albumState[ai] || 0) - 1), 5000);
+    card.addEventListener('mouseenter', () => clearInterval(timer));
+    card.addEventListener('mouseleave', () => {
+      timer = setInterval(() => goToSlide(ai, (albumState[ai] || 0) - 1), 5000);
     });
   });
 }
 
-document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
-lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
-
-function closeLightbox() {
-  lightbox.classList.add('hidden');
-  lightbox.classList.remove('flex');
-  document.body.style.overflow = '';
-}
-
-renderPortfolio(PORTFOLIO_DATA);
+renderAlbums(ALBUMS_DATA);
 
 // Mobile menu toggle
 const menuBtn = document.getElementById('menu-btn');
