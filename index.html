@@ -2,17 +2,13 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>Trust Estate | تشطيبات وديكور فاخر - 6 أكتوبر وزايد</title>
-<meta name="description" content="Trust Estate للتشطيبات والديكور - حي الأشجار 6 أكتوبر وزايد. معاينات مجانية، إشراف هندسي متكامل، وباقات تشطيب فاخرة بأفضل البراندات.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trust Estate | تراست إستيت للتشطيبات والديكور الفاخر</title>
+<meta name="description" content="Trust Estate للتشطيبات والديكور - حي الأشجار 6 أكتوبر وزايد - استوديو تصميم معماري ومعاينات مجانية وإشراف هندسي متكامل">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
-
-<!-- FontAwesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -21,17 +17,8 @@
     theme: {
       extend: {
         colors: {
-          navy: {
-            DEFAULT: '#0B1325',
-            light: '#131C33',
-            lighter: '#1B2740',
-          },
-          gold: {
-            DEFAULT: '#C5A880',
-            light: '#DCC9A6',
-            dark: '#A88A5F',
-          },
-          ivory: '#FAF7F0',
+          navy: { DEFAULT: '#0B1325', 950: '#070C18', 900: '#0B1325', 800: '#111B33', 700: '#182645' },
+          gold: { DEFAULT: '#C5A880', light: '#E4D3B4', dark: '#9C7F53' },
         },
         fontFamily: {
           display: ['Cairo', 'sans-serif'],
@@ -39,365 +26,270 @@
         },
       },
     },
-  };
+  }
 </script>
+
+<!-- FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
   html { scroll-behavior: smooth; }
-  body { font-family: 'Tajawal', sans-serif; background-color: #FAF7F0; }
+  body { font-family: 'Tajawal', sans-serif; background-color: #0B1325; }
   h1, h2, h3, h4, .font-display { font-family: 'Cairo', sans-serif; }
 
   ::selection { background: #C5A880; color: #0B1325; }
 
-  /* Subtle geometric seal motif */
-  .seal {
-    position: relative;
-  }
-  .seal::before {
-    content: '';
-    position: absolute;
-    inset: -10px;
-    border: 1px solid #C5A880;
-    border-radius: 9999px;
-    opacity: .5;
-  }
-
-  /* Islamic-inspired divider */
-  .divider-motif {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: .75rem;
-  }
-  .divider-motif::before,
-  .divider-motif::after {
-    content: '';
-    height: 1px;
-    width: 40px;
-    background: linear-gradient(90deg, transparent, #C5A880);
-  }
-  .divider-motif::after { background: linear-gradient(90deg, #C5A880, transparent); }
-
-  .bg-noise {
-    background-image: radial-gradient(#C5A880 0.5px, transparent 0.5px);
-    background-size: 22px 22px;
-  }
-
-  .card-gold-border {
-    border: 1px solid rgba(197,168,128,.25);
-    transition: border-color .35s ease, transform .35s ease, box-shadow .35s ease;
-  }
-  .card-gold-border:hover {
-    border-color: rgba(197,168,128,.75);
-    transform: translateY(-6px);
-    box-shadow: 0 20px 45px -20px rgba(197,168,128,.35);
-  }
-
-  .package-featured {
-    box-shadow: 0 0 0 1px #C5A880, 0 25px 60px -25px rgba(197,168,128,.5);
-  }
-
-  .fade-up {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity .7s ease, transform .7s ease;
-  }
-  .fade-up.in-view {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .gallery-item { position: relative; overflow: hidden; }
-  .gallery-item img { transition: transform .6s ease, filter .6s ease; }
-  .gallery-item:hover img { transform: scale(1.08); filter: brightness(.7); }
-  .gallery-caption {
-    position: absolute; inset: auto 0 0 0;
-    background: linear-gradient(to top, rgba(11,19,37,.96) 15%, transparent);
-  }
-
-  /* Gallery filter tabs */
-  .filter-tab {
-    transition: background-color .3s ease, color .3s ease, border-color .3s ease;
-  }
-  .filter-tab.active {
-    background-color: #C5A880;
-    color: #0B1325;
-    border-color: #C5A880;
-  }
-
-  /* Gallery card */
-  .work-card {
-    opacity: 1;
-    transform: scale(1);
-    transition: opacity .4s ease, transform .4s ease;
-  }
-  .work-card.hide {
-    display: none;
-  }
-  .zoom-btn {
-    opacity: 0;
-    transform: translateY(8px) scale(.9);
-    transition: opacity .3s ease, transform .3s ease;
-  }
-  .gallery-item:hover .zoom-btn,
-  .zoom-btn:focus-visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-  .spec-chip {
-    background: rgba(197,168,128,.12);
-    border: 1px solid rgba(197,168,128,.35);
-  }
-
-  /* Moodboard filter tabs (light section) */
-  .mfilter-tab {
-    transition: background-color .3s ease, color .3s ease, border-color .3s ease;
-  }
-  .mfilter-tab.active {
-    background-color: #0B1325;
-    color: #C5A880;
-    border-color: #0B1325;
-  }
-
-  /* Moodboard cards */
-  .mood-card {
-    transition: opacity .4s ease, transform .4s ease;
-    border: 1px solid rgba(11,19,37,.08);
-  }
-  .mood-card.hide { display: none; }
-  .mood-card:hover { transform: translateY(-5px); box-shadow: 0 25px 50px -25px rgba(11,19,37,.25); }
-  .mood-card .mood-img { transition: transform .6s ease; }
-  .mood-card:hover .mood-img { transform: scale(1.06); }
-
-  .material-badge {
-    background: #0B1325;
-    border: 1px solid rgba(197,168,128,.4);
-  }
-
-  /* Lightbox */
-  #lightbox { transition: opacity .3s ease; }
-  #lightbox.hidden-lb { opacity: 0; pointer-events: none; }
-  #lightbox-panel {
-    transition: transform .35s ease, opacity .35s ease;
-  }
-  #lightbox.hidden-lb #lightbox-panel {
-    transform: scale(.95) translateY(10px);
-    opacity: 0;
-  }
-
-  .whatsapp-float {
-    box-shadow: 0 10px 30px -8px rgba(37,211,102,.6);
-  }
-  .whatsapp-float:hover { transform: scale(1.08); }
-
   ::-webkit-scrollbar { width: 8px; }
   ::-webkit-scrollbar-track { background: #0B1325; }
-  ::-webkit-scrollbar-thumb { background: #C5A880; border-radius: 999px; }
+  ::-webkit-scrollbar-thumb { background: #C5A880; border-radius: 10px; }
 
-  a, button { -webkit-tap-highlight-color: transparent; }
-  :focus-visible { outline: 2px solid #C5A880; outline-offset: 3px; }
+  .signature-divider { display: flex; align-items: center; justify-content: center; gap: 10px; }
+  .signature-divider .line { height: 1px; width: 40px; background: linear-gradient(90deg, transparent, #C5A880); }
+  .signature-divider .line.rev { background: linear-gradient(90deg, #C5A880, transparent); }
+  .signature-divider .diamond { width: 8px; height: 8px; background: #C5A880; transform: rotate(45deg); }
 
-  @media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; transition: none !important; }
+  .gold-text { color: #C5A880; }
+  .card-gradient { background: linear-gradient(160deg, #111B33 0%, #0B1325 100%); }
+
+  .glow-border { position: relative; }
+  .glow-border::before {
+    content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+    background: linear-gradient(135deg, #C5A880, transparent 40%, transparent 60%, #C5A880);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .ribbon {
+    position: absolute; top: 18px; left: -6px;
+    background: #C5A880; color: #0B1325; font-weight: 800; font-size: 12px;
+    padding: 4px 14px; border-radius: 0 4px 4px 0;
+  }
+  .ribbon::after {
+    content: ''; position: absolute; left: 0; top: 100%;
+    border-width: 6px; border-style: solid;
+    border-color: #9C7F53 #9C7F53 transparent transparent;
+  }
+
+  @keyframes pulse-ring {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, .55); }
+    100% { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+  }
+  .wa-pulse { animation: pulse-ring 2s infinite; }
+
+  /* ===== Portfolio Masonry Gallery ===== */
+  #gallery-grid {
+    column-count: 1;
+    column-gap: 1.5rem;
+  }
+  @media (min-width: 640px) { #gallery-grid { column-count: 2; } }
+  @media (min-width: 1024px) { #gallery-grid { column-count: 3; } }
+
+  .project-card {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .project-img-wrap { overflow: hidden; position: relative; }
+  .project-img-wrap img { transition: transform .7s cubic-bezier(.2,.8,.2,1), filter .5s; display: block; width: 100%; }
+  .project-card:hover .project-img-wrap img { transform: scale(1.08); filter: brightness(.7); }
+
+  .project-overlay {
+    opacity: 0; transition: opacity .4s;
+  }
+  .project-card:hover .project-overlay { opacity: 1; }
+
+  .project-tag {
+    position: absolute; top: 14px; right: 14px;
+    backdrop-filter: blur(6px);
+  }
+
+  /* Filter buttons */
+  .filter-btn { transition: all .35s ease; white-space: nowrap; }
+  .filter-btn.active { background: #C5A880; color: #0B1325; border-color: #C5A880; }
+
+  .project-card.hide { display: none; }
+
+  #lightbox { backdrop-filter: blur(6px); }
+  .spec-chip { font-size: 11px; line-height: 1.4; }
+
+  .filter-scroll { -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .filter-scroll::-webkit-scrollbar { display: none; }
+
+  @media (max-width: 640px) {
+    .ribbon { font-size: 10px; padding: 3px 10px; }
   }
 </style>
 </head>
 
-<body class="text-navy antialiased overflow-x-hidden">
+<body class="bg-navy text-gray-200 antialiased">
 
-<!-- ===================== HEADER ===================== -->
-<header id="site-header" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-navy/95 backdrop-blur border-b border-gold/20">
+<!-- ============ HEADER ============ -->
+<header id="site-header" class="fixed top-0 inset-x-0 z-50 bg-navy-950/90 backdrop-blur-md border-b border-gold/20 transition-all">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 md:h-20">
 
-      <!-- Logo -->
-      <a href="#hero" class="flex items-center gap-2 group">
-        <span class="w-10 h-10 md:w-11 md:h-11 rounded-full border-2 border-gold flex items-center justify-center shrink-0 group-hover:bg-gold/10 transition-colors">
-          <i class="fa-solid fa-gem text-gold text-sm md:text-base"></i>
-        </span>
-        <span class="flex flex-col leading-tight">
-          <span class="font-display font-extrabold text-ivory text-base md:text-lg tracking-wide">Trust <span class="text-gold">Estate</span></span>
-          <span class="text-[10px] md:text-xs text-gold/70 font-body">للتشطيبات والديكور</span>
-        </span>
+      <a href="#top" class="flex items-center gap-2 group">
+        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-gold flex items-center justify-center relative">
+          <i class="fa-solid fa-crown text-gold text-sm md:text-base"></i>
+        </div>
+        <div class="leading-tight">
+          <span class="block font-display font-extrabold text-white text-base md:text-lg tracking-wide">Trust <span class="gold-text">Estate</span></span>
+          <span class="block text-[10px] md:text-xs text-gray-400 -mt-1">للتشطيبات والديكور</span>
+        </div>
       </a>
 
-      <!-- Desktop Nav -->
-      <nav class="hidden lg:flex items-center gap-8 font-body text-sm text-ivory/85">
+      <nav class="hidden lg:flex items-center gap-8 font-display font-semibold text-sm">
         <a href="#hero" class="hover:text-gold transition-colors">الرئيسية</a>
         <a href="#packages" class="hover:text-gold transition-colors">الباقات</a>
-        <a href="#gallery" class="hover:text-gold transition-colors">المعرض</a>
-        <a href="#moodboard" class="hover:text-gold transition-colors">إلهام التصميم</a>
-        <a href="#guarantees" class="hover:text-gold transition-colors">الضمانات</a>
+        <a href="#gallery" class="hover:text-gold transition-colors">استوديو التصميم</a>
+        <a href="#warranty" class="hover:text-gold transition-colors">الضمانات</a>
         <a href="#footer" class="hover:text-gold transition-colors">تواصل معنا</a>
       </nav>
 
-      <!-- CTA buttons -->
       <div class="flex items-center gap-2 md:gap-3">
-        <a href="tel:01091293456" aria-label="اتصال مباشر" class="w-10 h-10 rounded-full border border-gold/50 text-gold flex items-center justify-center hover:bg-gold hover:text-navy transition-colors">
-          <i class="fa-solid fa-phone"></i>
+        <a href="tel:01091293456" class="hidden sm:flex items-center gap-2 border border-gold/50 text-gold px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-display font-semibold hover:bg-gold hover:text-navy transition-all">
+          <i class="fa-solid fa-phone"></i> اتصل الآن
         </a>
-        <a href="https://wa.me/201091293456" target="_blank" rel="noopener" class="flex items-center gap-2 bg-gold text-navy font-display font-bold text-xs md:text-sm px-3 md:px-5 py-2.5 rounded-full hover:bg-gold-light transition-colors">
-          <i class="fa-brands fa-whatsapp text-base"></i>
-          <span class="hidden sm:inline">واتساب فوري</span>
+        <a href="https://wa.me/201091293456" target="_blank" rel="noopener" class="flex items-center gap-2 bg-[#25D366] text-navy px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-display font-bold hover:brightness-110 transition-all">
+          <i class="fa-brands fa-whatsapp text-base"></i> <span class="hidden xs:inline">واتساب</span>
         </a>
-
-        <!-- Mobile menu toggle -->
-        <button id="menu-btn" aria-label="فتح القائمة" aria-expanded="false" class="lg:hidden w-10 h-10 rounded-full border border-gold/40 text-gold flex items-center justify-center">
+        <button id="menu-btn" class="lg:hidden text-gold w-9 h-9 flex items-center justify-center border border-gold/40 rounded-lg">
           <i class="fa-solid fa-bars"></i>
         </button>
       </div>
     </div>
   </div>
 
-  <!-- Mobile nav panel -->
-  <div id="mobile-menu" class="lg:hidden hidden border-t border-gold/20 bg-navy">
-    <nav class="flex flex-col px-6 py-4 gap-4 font-body text-ivory/90 text-sm">
-      <a href="#hero" class="mobile-link py-1">الرئيسية</a>
-      <a href="#packages" class="mobile-link py-1">الباقات</a>
-      <a href="#gallery" class="mobile-link py-1">المعرض</a>
-      <a href="#moodboard" class="mobile-link py-1">إلهام التصميم</a>
-      <a href="#guarantees" class="mobile-link py-1">الضمانات</a>
-      <a href="#footer" class="mobile-link py-1">تواصل معنا</a>
+  <div id="mobile-menu" class="lg:hidden hidden bg-navy-800 border-t border-gold/20">
+    <nav class="flex flex-col p-4 gap-3 font-display font-semibold text-sm">
+      <a href="#hero" class="py-2 border-b border-white/5">الرئيسية</a>
+      <a href="#packages" class="py-2 border-b border-white/5">الباقات</a>
+      <a href="#gallery" class="py-2 border-b border-white/5">استوديو التصميم</a>
+      <a href="#warranty" class="py-2 border-b border-white/5">الضمانات</a>
+      <a href="#footer" class="py-2">تواصل معنا</a>
     </nav>
   </div>
 </header>
 
-<!-- ===================== HERO ===================== -->
-<section id="hero" class="relative bg-navy bg-noise pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-b from-navy via-navy/95 to-navy"></div>
-  <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-gold/10 blur-3xl"></div>
-  <div class="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-gold/10 blur-3xl"></div>
+<div id="top"></div>
 
-  <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<!-- ============ HERO ============ -->
+<section id="hero" class="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1920&q=80" alt="تشطيبات فاخرة" class="w-full h-full object-cover opacity-25">
+    <div class="absolute inset-0 bg-gradient-to-b from-navy via-navy/85 to-navy"></div>
+    <div class="absolute inset-0 bg-gradient-to-l from-navy-900/40 to-transparent"></div>
+  </div>
 
-    <div class="inline-flex items-center gap-2 border border-gold/40 rounded-full px-4 py-1.5 mb-6 fade-up">
-      <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
-      <span class="text-gold text-xs md:text-sm font-body">معاينات مجانية تماماً داخل 6 أكتوبر وزايد</span>
-    </div>
-
-    <h1 class="fade-up font-display font-black text-3xl sm:text-4xl md:text-6xl leading-tight text-ivory mb-6">
-      نحوّل جدرانكم الفارغة <br class="hidden sm:block">
-      إلى <span class="text-gold">توقيع فخامة</span> يليق بكم
-    </h1>
-
-    <p class="fade-up text-ivory/70 text-sm md:text-lg leading-relaxed max-w-2xl mx-auto mb-10 font-body">
-      Trust Estate للتشطيبات والديكور — إشراف هندسي متكامل من أول المقايسة وحتى تسليم المفتاح،
-      ببراندات أصلية موثقة وضمانات مكتوبة، في حي الأشجار وكل فروع 6 أكتوبر والشيخ زايد.
-    </p>
-
-    <div class="fade-up flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a href="https://wa.me/201091293456?text=أرغب%20في%20حجز%20معاينة%20مجانية" target="_blank" rel="noopener"
-         class="w-full sm:w-auto flex items-center justify-center gap-2 bg-gold text-navy font-display font-bold px-8 py-4 rounded-full hover:bg-gold-light transition-colors text-sm md:text-base">
-        <i class="fa-brands fa-whatsapp text-lg"></i>
-        احجز معاينتك المجانية الآن
-      </a>
-      <a href="#packages"
-         class="w-full sm:w-auto flex items-center justify-center gap-2 border border-gold/50 text-ivory font-display font-bold px-8 py-4 rounded-full hover:border-gold hover:text-gold transition-colors text-sm md:text-base">
-        استعرض الباقات
-        <i class="fa-solid fa-arrow-left-long"></i>
-      </a>
-    </div>
-
-    <!-- Trust stats -->
-    <div class="fade-up grid grid-cols-3 gap-4 md:gap-8 mt-16 md:mt-20 max-w-2xl mx-auto">
-      <div class="border-t border-gold/20 pt-4">
-        <div class="font-display font-extrabold text-gold text-xl md:text-3xl">0%</div>
-        <div class="text-ivory/60 text-[11px] md:text-sm font-body mt-1">مصاريف معاينة</div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <div class="max-w-3xl">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="signature-divider"><span class="line rev"></span><span class="diamond"></span></span>
+        <span class="font-display text-gold text-sm md:text-base tracking-[0.2em]">TRUST ESTATE — منذ الثقة تبدأ الفخامة</span>
       </div>
-      <div class="border-t border-gold/20 pt-4">
-        <div class="font-display font-extrabold text-gold text-xl md:text-3xl">100%</div>
-        <div class="text-ivory/60 text-[11px] md:text-sm font-body mt-1">إشراف هندسي</div>
+
+      <h1 class="font-display font-black text-4xl sm:text-5xl md:text-6xl text-white leading-[1.15] mb-6">
+        تشطيبات فاخرة بمعايير هندسية
+        <span class="block gold-text mt-2">تليق بمنزل أحلامك</span>
+      </h1>
+
+      <p class="text-gray-300 text-base md:text-lg leading-loose mb-8 max-w-xl">
+        نُقدّم معاينات مجانية بالكامل داخل مدينتي 6 أكتوبر والشيخ زايد، مع إشراف هندسي متكامل من أول يوم حتى تسليم المفتاح — بلا مفاجآت، وبلا مصاريف خفية.
+      </p>
+
+      <div class="flex flex-wrap gap-4 mb-10">
+        <a href="#packages" class="bg-gold text-navy font-display font-extrabold px-7 py-4 rounded-lg text-sm md:text-base hover:bg-gold-light transition-all shadow-lg shadow-gold/20 flex items-center gap-2">
+          <i class="fa-solid fa-ruler-combined"></i> اطلب معاينة مجانية
+        </a>
+        <a href="#gallery" class="border border-gold/40 text-white font-display font-semibold px-7 py-4 rounded-lg text-sm md:text-base hover:border-gold hover:text-gold transition-all flex items-center gap-2">
+          <i class="fa-solid fa-compass-drafting"></i> تصفح استوديو التصميم
+        </a>
       </div>
-      <div class="border-t border-gold/20 pt-4">
-        <div class="font-display font-extrabold text-gold text-xl md:text-3xl">ضمان</div>
-        <div class="text-ivory/60 text-[11px] md:text-sm font-body mt-1">مكتوب وموثق</div>
+
+      <div class="grid grid-cols-3 gap-4 md:gap-8 max-w-xl border-t border-gold/15 pt-6">
+        <div>
+          <div class="font-display font-extrabold text-2xl md:text-3xl text-gold">100%</div>
+          <div class="text-xs md:text-sm text-gray-400 mt-1">معاينة مجانية</div>
+        </div>
+        <div>
+          <div class="font-display font-extrabold text-2xl md:text-3xl text-gold">إشراف</div>
+          <div class="text-xs md:text-sm text-gray-400 mt-1">هندسي متكامل</div>
+        </div>
+        <div>
+          <div class="font-display font-extrabold text-2xl md:text-3xl text-gold">ضمان</div>
+          <div class="text-xs md:text-sm text-gray-400 mt-1">شهادات معتمدة</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== PACKAGES ===================== -->
-<section id="packages" class="bg-ivory py-20 md:py-28">
+<!-- ============ PACKAGES ============ -->
+<section id="packages" class="py-20 md:py-28 bg-navy-900 relative">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <div class="text-center max-w-2xl mx-auto mb-16">
-      <span class="text-gold-dark font-display font-bold text-xs md:text-sm tracking-widest">باقات التشطيب</span>
-      <div class="divider-motif my-3"><i class="fa-solid fa-gem text-gold text-xs"></i></div>
-      <h2 class="font-display font-black text-2xl md:text-4xl text-navy">ثلاث درجات من الفخامة، بمواصفات موثقة</h2>
-      <p class="text-navy/60 font-body mt-4 text-sm md:text-base">اختر الباقة التي تناسب رؤيتك، وكل بند فيها مكتوب بالبراند والموديل داخل العقد.</p>
+    <div class="text-center mb-16">
+      <span class="signature-divider mb-4"><span class="line"></span><span class="diamond"></span><span class="line rev"></span></span>
+      <h2 class="font-display font-black text-3xl md:text-4xl text-white mb-4">باقات التشطيب</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">اختر الباقة التي تناسب رؤيتك، وكلها مبنية على براندات موثوقة ومقايسة واضحة بدون أي بنود مخفية</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-start">
+    <div class="grid md:grid-cols-3 gap-8">
 
-      <!-- Package 1: Super Lux -->
-      <div class="fade-up card-gold-border bg-navy rounded-2xl p-7 md:p-8 flex flex-col h-full">
-        <div class="w-14 h-14 rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center mb-6">
-          <i class="fa-solid fa-rings-wedding text-gold text-xl"></i>
+      <div class="card-gradient glow-border rounded-2xl p-8 flex flex-col relative">
+        <div class="mb-6">
+          <i class="fa-solid fa-ring text-gold text-3xl mb-4"></i>
+          <h3 class="font-display font-bold text-2xl text-white">سوبر لوكس</h3>
+          <p class="text-sm text-gray-400 mt-1">الباقة المثالية للعرسان</p>
         </div>
-        <span class="text-gold/70 font-body text-xs mb-1">للعرسان</span>
-        <h3 class="font-display font-extrabold text-ivory text-xl md:text-2xl mb-4">سوبر لوكس</h3>
-        <p class="text-ivory/50 font-body text-sm mb-6 leading-relaxed">التشطيب المتكامل اللي بيبدأ بيه العريس حياته، بأسماء موردين تقدر تتأكد منها بنفسك.</p>
-
-        <ul class="space-y-3 font-body text-sm text-ivory/80 mb-8 flex-1">
-          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>تأسيس أسلاك كهرباء <span class="text-gold">السويدي إليكتريك</span> أصلية 100%</span></li>
-          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>تمديدات سباكة <span class="text-gold">الشريف / BR</span> بضمان رسمي</span></li>
-          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>دهانات <span class="text-gold">جوتن فينوماستيك</span> فائقة الجودة</span></li>
-          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>سيراميك وبورسلين <span class="text-gold">فرز أول</span> مضمون المصدر</span></li>
-          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>أسقف <span class="text-gold">جبسيوم بورد</span> بديكورات هادئة وأنيقة</span></li>
+        <ul class="space-y-3 text-sm text-gray-300 flex-1">
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold mt-1"></i> تأسيس كهرباء بأسلاك السويدي الأصلية</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold mt-1"></i> تأسيس سباكة الشريف / BR بضمان رسمي</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold mt-1"></i> دهانات جوتن فينوماستيك عالية التغطية</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold mt-1"></i> سيراميك وبورسلين فرز أول</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold mt-1"></i> أسقف جبسيوم بورد بتصميمات متعددة</li>
         </ul>
-
-        <a href="https://wa.me/201091293456?text=أرغب%20في%20الاستفسار%20عن%20باقة%20سوبر%20لوكس" target="_blank" rel="noopener"
-           class="text-center border border-gold/50 text-gold font-display font-bold py-3 rounded-full hover:bg-gold hover:text-navy transition-colors text-sm">
-          استفسر عن الباقة
+        <a href="https://wa.me/201091293456" target="_blank" rel="noopener" class="mt-8 block text-center border border-gold/50 text-gold font-display font-bold py-3 rounded-lg hover:bg-gold hover:text-navy transition-all">
+          اطلب مقايسة
         </a>
       </div>
 
-      <!-- Package 2: Ultra Lux (Featured) -->
-      <div class="fade-up package-featured relative bg-navy rounded-2xl p-7 md:p-8 flex flex-col h-full md:-mt-6">
-        <div class="absolute -top-3 right-1/2 translate-x-1/2 bg-gold text-navy text-[11px] font-display font-bold px-4 py-1 rounded-full whitespace-nowrap">
-          الأكثر طلباً
+      <div class="card-gradient glow-border rounded-2xl p-8 flex flex-col relative md:-mt-6 md:mb-6 shadow-2xl shadow-gold/10">
+        <span class="ribbon"><i class="fa-solid fa-star ml-1"></i> الأكثر طلباً</span>
+        <div class="mb-6">
+          <i class="fa-solid fa-gem text-gold text-3xl mb-4"></i>
+          <h3 class="font-display font-bold text-2xl text-white">ألترا لوكس <span class="text-gold text-base">VIP</span></h3>
+          <p class="text-sm text-gray-400 mt-1">لأصحاب الذوق الرفيع</p>
         </div>
-        <div class="w-14 h-14 rounded-full bg-gold/15 border border-gold flex items-center justify-center mb-6">
-          <i class="fa-solid fa-crown text-gold text-xl"></i>
-        </div>
-        <span class="text-gold/70 font-body text-xs mb-1">VIP</span>
-        <h3 class="font-display font-extrabold text-ivory text-xl md:text-2xl mb-4">ألترا لوكس</h3>
-        <p class="text-ivory/50 font-body text-sm mb-6 leading-relaxed">تشطيب بحس تصميمي عصري وتقنيات ذكية، لمن يبحث عن تفاصيل مختلفة فعلاً.</p>
-
-        <ul class="space-y-3 font-body text-sm text-ivory/80 mb-8 flex-1">
-          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>تجاليد <span class="text-gold">بديل رخام</span> و<span class="text-gold">بديل خشب WPC</span> عازلة للرطوبة</span></li>
-          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>إضاءات <span class="text-gold">بروفايل ليد</span> مخفية في الأسقف والحوائط</span></li>
-          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>أدوات صحية معلقة <span class="text-gold">ديورافيت / جروهي</span></span></li>
-          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>أبواب <span class="text-gold">تركي</span> فاخرة بمقاسات مضبوطة</span></li>
-          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>تأسيس كامل لمنظومة <span class="text-gold">Smart Home</span></span></li>
+        <ul class="space-y-3 text-sm text-gray-300 flex-1">
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold mt-1"></i> تجاليد حوائط بديل رخام وبديل خشب WPC</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold mt-1"></i> إضاءات بروفايل ليد مخفية بتصميم فندقي</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold mt-1"></i> أدوات صحية معلقة ديورافيت / جروهي</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold mt-1"></i> أبواب خشب تركي بمواصفات فندقية</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold mt-1"></i> تأسيس سمارت هوم للإضاءة والتحكم</li>
         </ul>
-
-        <a href="https://wa.me/201091293456?text=أرغب%20في%20الاستفسار%20عن%20باقة%20ألترا%20لوكس" target="_blank" rel="noopener"
-           class="text-center bg-gold text-navy font-display font-bold py-3 rounded-full hover:bg-gold-light transition-colors text-sm">
-          استفسر عن الباقة
+        <a href="https://wa.me/201091293456" target="_blank" rel="noopener" class="mt-8 block text-center bg-gold text-navy font-display font-bold py-3 rounded-lg hover:bg-gold-light transition-all">
+          اطلب مقايسة
         </a>
       </div>
 
-      <!-- Package 3: Royal Custom -->
-      <div class="fade-up card-gold-border bg-navy rounded-2xl p-7 md:p-8 flex flex-col h-full">
-        <div class="w-14 h-14 rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center mb-6">
-          <i class="fa-solid fa-chess-king text-gold text-xl"></i>
+      <div class="card-gradient glow-border rounded-2xl p-8 flex flex-col relative">
+        <div class="mb-6">
+          <i class="fa-solid fa-crown text-gold text-3xl mb-4"></i>
+          <h3 class="font-display font-bold text-2xl text-white">الباقة الملكية</h3>
+          <p class="text-sm text-gray-400 mt-1">Custom Signature — تصميم خاص</p>
         </div>
-        <span class="text-gold/70 font-body text-xs mb-1">Custom Signature</span>
-        <h3 class="font-display font-extrabold text-ivory text-xl md:text-2xl mb-4">الباقة الملكية</h3>
-        <p class="text-ivory/50 font-body text-sm mb-6 leading-relaxed">توقيع خاص بالكامل، من التصميم وحتى آخر تفصيلة، بلا سقف للتخصيص.</p>
-
-        <ul class="space-y-3 font-body text-sm text-ivory/80 mb-8 flex-1">
-          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>تصميم <span class="text-gold">3D</span> خاص لكل ركن في الوحدة قبل التنفيذ</span></li>
-          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span><span class="text-gold">رخام طبيعي مستورد</span> منتقى حسب الطلب</span></li>
-          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>تكييف <span class="text-gold">مركزي</span> بتوزيع هندسي مدروس</span></li>
-          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>تحكم <span class="text-gold">ذكي كامل</span> في الإضاءة والستائر والأمان</span></li>
-          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span><span class="text-gold">ضمان شامل</span> على التنفيذ والتوريدات</span></li>
+        <ul class="space-y-3 text-sm text-gray-300 flex-1">
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold mt-1"></i> تصميم 3D خاص لكل ركن في المنزل</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold mt-1"></i> رخام طبيعي مستورد بمساحات مختارة</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold mt-1"></i> تكييف مركزي متكامل التصميم</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold mt-1"></i> تحكم ذكي كامل بجميع أنظمة المنزل</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-gold mt-1"></i> ضمان شامل واعتماد مهندس متابعة دائم</li>
         </ul>
-
-        <a href="https://wa.me/201091293456?text=أرغب%20في%20الاستفسار%20عن%20الباقة%20الملكية" target="_blank" rel="noopener"
-           class="text-center border border-gold/50 text-gold font-display font-bold py-3 rounded-full hover:bg-gold hover:text-navy transition-colors text-sm">
-          استفسر عن الباقة
+        <a href="https://wa.me/201091293456" target="_blank" rel="noopener" class="mt-8 block text-center border border-gold/50 text-gold font-display font-bold py-3 rounded-lg hover:bg-gold hover:text-navy transition-all">
+          اطلب مقايسة
         </a>
       </div>
 
@@ -405,643 +297,392 @@
   </div>
 </section>
 
-<!-- ===================== GALLERY ===================== -->
-<section id="gallery" class="bg-navy py-20 md:py-28">
+<!-- ============ GALLERY / ARCHITECTURAL PORTFOLIO & LOOKBOOK ============ -->
+<section id="gallery" class="py-20 md:py-28 bg-navy relative">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <div class="text-center max-w-2xl mx-auto mb-10">
-      <span class="text-gold font-display font-bold text-xs md:text-sm tracking-widest">من أعمالنا</span>
-      <div class="divider-motif my-3"><i class="fa-solid fa-gem text-gold text-xs"></i></div>
-      <h2 class="font-display font-black text-2xl md:text-4xl text-ivory">معرض الأفكار والتغذية البصرية</h2>
-      <p class="text-ivory/50 font-body mt-4 text-sm md:text-base">نماذج ملهمة بنفس مواصفات التنفيذ المعتمدة لدينا — كل كارت موضّح عليه البنود المستخدمة بالضبط.</p>
+    <div class="text-center mb-10">
+      <span class="signature-divider mb-4"><span class="line"></span><span class="diamond"></span><span class="line rev"></span></span>
+      <h2 class="font-display font-black text-3xl md:text-4xl text-white mb-4">استوديو التصميم المعماري</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto mb-3">Architectural Portfolio &amp; Lookbook — منصة إلهام تجمع أرقى الأنماط التصميمية المنفذة بمعايير هندسية دقيقة</p>
+      <p class="font-display text-gold text-sm md:text-base max-w-3xl mx-auto border-t border-gold/15 pt-4 mt-4">
+        كل نمط معروض يتم تعديل مخططاته التنفيذية لتناسب مساحة وحدتك وميزانيتك بدقة عبر فريقنا الهندسي
+      </p>
     </div>
 
-    <!-- Filter Tabs -->
-    <div id="gallery-filters" class="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-10 md:mb-12">
-      <button data-filter="all" class="filter-tab active font-body text-xs md:text-sm px-4 md:px-5 py-2 rounded-full border border-gold/40 text-ivory/80">
-        الكل
+    <!-- Filter Bar -->
+    <div class="filter-scroll flex md:flex-wrap md:justify-center gap-3 mb-12 overflow-x-auto pb-2">
+      <button data-filter="all" class="filter-btn active border border-gold/40 text-gold font-display font-semibold text-xs md:text-sm px-5 py-2.5 rounded-full shrink-0">
+        كافة الأعمال
       </button>
-      <button data-filter="bathrooms" class="filter-tab font-body text-xs md:text-sm px-4 md:px-5 py-2 rounded-full border border-gold/40 text-ivory/80">
-        الحمامات المودرن
+      <button data-filter="living" class="filter-btn border border-gold/40 text-gold font-display font-semibold text-xs md:text-sm px-5 py-2.5 rounded-full shrink-0">
+        الاستقبال والريسبشن
       </button>
-      <button data-filter="living" class="filter-tab font-body text-xs md:text-sm px-4 md:px-5 py-2 rounded-full border border-gold/40 text-ivory/80">
-        الريسبشن والصالونات
+      <button data-filter="master" class="filter-btn border border-gold/40 text-gold font-display font-semibold text-xs md:text-sm px-5 py-2.5 rounded-full shrink-0">
+        الأجنحة الرئيسية
       </button>
-      <button data-filter="bedrooms" class="filter-tab font-body text-xs md:text-sm px-4 md:px-5 py-2 rounded-full border border-gold/40 text-ivory/80">
-        غرف النوم والماستر
+      <button data-filter="kitchen" class="filter-btn border border-gold/40 text-gold font-display font-semibold text-xs md:text-sm px-5 py-2.5 rounded-full shrink-0">
+        المطابخ وأنظمة التخزين
       </button>
-      <button data-filter="kitchens" class="filter-tab font-body text-xs md:text-sm px-4 md:px-5 py-2 rounded-full border border-gold/40 text-ivory/80">
-        المطابخ الحديثة
+      <button data-filter="bathroom" class="filter-btn border border-gold/40 text-gold font-display font-semibold text-xs md:text-sm px-5 py-2.5 rounded-full shrink-0">
+        الحمامات والسبا المنزلي
+      </button>
+      <button data-filter="closet" class="filter-btn border border-gold/40 text-gold font-display font-semibold text-xs md:text-sm px-5 py-2.5 rounded-full shrink-0">
+        غرف الملابس
       </button>
     </div>
 
-    <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
-      <!-- injected by JS -->
+    <!-- Masonry Gallery Grid -->
+    <div id="gallery-grid"></div>
+
+    <div class="text-center mt-4 text-gray-500 text-xs" id="empty-state" style="display:none">
+      لا توجد نماذج ضمن هذا التصنيف حالياً
     </div>
   </div>
 </section>
 
 <!-- Lightbox -->
-<div id="lightbox" class="hidden-lb fixed inset-0 z-[60] flex items-center justify-center p-4 md:p-8 bg-navy/95 backdrop-blur-sm">
-  <button id="lightbox-close" aria-label="إغلاق المعاينة" class="absolute top-5 left-5 md:top-8 md:left-8 w-11 h-11 rounded-full border border-gold/50 text-gold flex items-center justify-center hover:bg-gold hover:text-navy transition-colors">
-    <i class="fa-solid fa-xmark text-lg"></i>
+<div id="lightbox" class="fixed inset-0 z-[100] bg-black/85 hidden items-center justify-center p-4">
+  <button id="lightbox-close" class="absolute top-5 left-5 md:top-8 md:left-8 text-white w-10 h-10 rounded-full border border-white/30 flex items-center justify-center hover:border-gold hover:text-gold transition-all">
+    <i class="fa-solid fa-xmark"></i>
   </button>
-
-  <div id="lightbox-panel" class="w-full max-w-4xl bg-navy-light rounded-2xl overflow-hidden border border-gold/20 grid grid-cols-1 md:grid-cols-2 max-h-[90vh]">
-    <div class="h-64 md:h-auto">
-      <img id="lightbox-img" src="" alt="" class="w-full h-full object-cover">
-    </div>
-    <div class="p-6 md:p-8 overflow-y-auto">
-      <span id="lightbox-category" class="text-gold text-xs font-body"></span>
-      <h3 id="lightbox-title" class="font-display font-extrabold text-ivory text-xl md:text-2xl mt-2 mb-5"></h3>
-      <ul id="lightbox-specs" class="space-y-3 font-body text-sm text-ivory/80"></ul>
-      <a href="https://wa.me/201091293456?text=أرغب%20في%20تنفيذ%20تصميم%20مشابه%20لهذا%20النموذج" target="_blank" rel="noopener"
-         class="mt-7 inline-flex items-center gap-2 bg-gold text-navy font-display font-bold px-6 py-3 rounded-full hover:bg-gold-light transition-colors text-sm">
-        <i class="fa-brands fa-whatsapp"></i>
-        أرغب في تنفيذ تصميم مشابه
+  <div class="max-w-3xl w-full">
+    <img id="lightbox-img" src="" alt="" class="w-full max-h-[62vh] object-cover rounded-xl border border-gold/30">
+    <div class="mt-5 text-center">
+      <h4 id="lightbox-title" class="font-display font-bold text-white text-lg md:text-xl"></h4>
+      <p id="lightbox-desc" class="text-gray-400 text-sm mt-2 max-w-2xl mx-auto leading-loose"></p>
+      <a id="lightbox-wa" href="#" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2 mt-5 bg-gold text-navy font-display font-bold px-6 py-3 rounded-lg hover:bg-gold-light transition-all text-sm">
+        <i class="fa-brands fa-whatsapp"></i> طلب استشارة هندسية لتطبيق هذا النمط
       </a>
     </div>
   </div>
 </div>
 
-<!-- ===================== MOODBOARD & DESIGN STYLES ===================== -->
-<section id="moodboard" class="bg-ivory py-20 md:py-28 border-t border-navy/5">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- ============ WARRANTY ============ -->
+<section id="warranty" class="py-20 md:py-28 bg-navy-900 relative overflow-hidden">
+  <div class="absolute -top-20 -left-20 w-72 h-72 bg-gold/5 rounded-full blur-3xl"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
 
-    <div class="text-center max-w-2xl mx-auto mb-10">
-      <span class="text-gold-dark font-display font-bold text-xs md:text-sm tracking-widest">Moodboard & Design Styles</span>
-      <div class="divider-motif my-3"><i class="fa-solid fa-gem text-gold text-xs"></i></div>
-      <h2 class="font-display font-black text-2xl md:text-4xl text-navy">إلهام معماري بخامات وبراندات السوق المصري</h2>
-      <p class="text-navy/60 font-body mt-4 text-sm md:text-base max-w-xl mx-auto">اختر الطراز اللي يعجبك من واقع تنفيذاتنا الفعلية بأكتوبر والشيخ زايد، بنفس الخامات والبراندات المتاحة في السوق.</p>
+    <div class="text-center mb-16">
+      <span class="signature-divider mb-4"><span class="line"></span><span class="diamond"></span><span class="line rev"></span></span>
+      <h2 class="font-display font-black text-3xl md:text-4xl text-white mb-4">التزامنا وضماناتنا</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">ثقتكم أمانة، ولهذا نُوثّق كل التزام تجاهكم في العقد قبل بدء أي عمل</p>
     </div>
 
-    <!-- Filter Tabs -->
-    <div id="moodboard-filters" class="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-10 md:mb-12">
-      <button data-mfilter="all" class="mfilter-tab active font-body text-xs md:text-sm px-4 md:px-5 py-2 rounded-full border border-gold/50 text-navy/70">
-        الكل
-      </button>
-      <button data-mfilter="classic" class="mfilter-tab font-body text-xs md:text-sm px-4 md:px-5 py-2 rounded-full border border-gold/50 text-navy/70">
-        نيو كلاسيك وبانوهات
-      </button>
-      <button data-mfilter="modern" class="mfilter-tab font-body text-xs md:text-sm px-4 md:px-5 py-2 rounded-full border border-gold/50 text-navy/70">
-        مودرن وماتيريال ميكس
-      </button>
-      <button data-mfilter="hotel-bathrooms" class="mfilter-tab font-body text-xs md:text-sm px-4 md:px-5 py-2 rounded-full border border-gold/50 text-navy/70">
-        حمامات فندقية وسباكة دفن
-      </button>
-      <button data-mfilter="kitchens" class="mfilter-tab font-body text-xs md:text-sm px-4 md:px-5 py-2 rounded-full border border-gold/50 text-navy/70">
-        مطابخ ودريسنج مودرن
-      </button>
-    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="text-center p-8 border border-gold/15 rounded-2xl hover:border-gold/40 transition-all">
+        <div class="w-16 h-16 mx-auto rounded-full bg-gold/10 flex items-center justify-center mb-5">
+          <i class="fa-solid fa-clock text-gold text-2xl"></i>
+        </div>
+        <h3 class="font-display font-bold text-white text-lg mb-3">التزام زمني بغرامة تأخير</h3>
+        <p class="text-gray-400 text-sm leading-loose">مدة تنفيذ محددة في العقد، وفي حالة التأخير عن الموعد المتفق عليه يتم احتساب غرامة تأخير وفقاً للبنود المتفق عليها.</p>
+      </div>
 
-    <div id="moodboard-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
-      <!-- injected by JS -->
+      <div class="text-center p-8 border border-gold/15 rounded-2xl hover:border-gold/40 transition-all">
+        <div class="w-16 h-16 mx-auto rounded-full bg-gold/10 flex items-center justify-center mb-5">
+          <i class="fa-solid fa-certificate text-gold text-2xl"></i>
+        </div>
+        <h3 class="font-display font-bold text-white text-lg mb-3">شهادات ضمان معتمدة</h3>
+        <p class="text-gray-400 text-sm leading-loose">شهادات ضمان رسمية لكل بند من بنود السباكة والكهرباء والدهانات، صادرة باسم العميل ومعتمدة من الموردين الأصليين.</p>
+      </div>
+
+      <div class="text-center p-8 border border-gold/15 rounded-2xl hover:border-gold/40 transition-all">
+        <div class="w-16 h-16 mx-auto rounded-full bg-gold/10 flex items-center justify-center mb-5">
+          <i class="fa-solid fa-file-invoice-dollar text-gold text-2xl"></i>
+        </div>
+        <h3 class="font-display font-bold text-white text-lg mb-3">مقايسة بدون مصاريف خفية</h3>
+        <p class="text-gray-400 text-sm leading-loose">مقايسة تفصيلية لكل بند وكل خامة قبل التوقيع، فلا مفاجآت مالية أثناء التنفيذ ولا بنود إضافية غير معلنة.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== GUARANTEES ===================== -->
-<section id="guarantees" class="bg-ivory py-20 md:py-28">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <div class="text-center max-w-2xl mx-auto mb-16">
-      <span class="text-gold-dark font-display font-bold text-xs md:text-sm tracking-widest">التزامنا تجاهك</span>
-      <div class="divider-motif my-3"><i class="fa-solid fa-gem text-gold text-xs"></i></div>
-      <h2 class="font-display font-black text-2xl md:text-4xl text-navy">ضمانات مكتوبة، لا وعود شفهية</h2>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-
-      <div class="fade-up bg-white rounded-2xl p-8 border border-navy/5 shadow-sm text-center">
-        <div class="w-16 h-16 mx-auto rounded-full bg-navy flex items-center justify-center mb-5 seal">
-          <i class="fa-solid fa-clock text-gold text-xl"></i>
-        </div>
-        <h3 class="font-display font-bold text-navy text-lg mb-3">التزام زمني بغرامة تأخير</h3>
-        <p class="text-navy/60 font-body text-sm leading-relaxed">مدة التنفيذ مكتوبة في العقد، وأي تأخير من جانبنا يقابله غرامة مالية محددة سلفاً بدون نقاش.</p>
-      </div>
-
-      <div class="fade-up bg-white rounded-2xl p-8 border border-navy/5 shadow-sm text-center">
-        <div class="w-16 h-16 mx-auto rounded-full bg-navy flex items-center justify-center mb-5 seal">
-          <i class="fa-solid fa-certificate text-gold text-xl"></i>
-        </div>
-        <h3 class="font-display font-bold text-navy text-lg mb-3">شهادات ضمان معتمدة</h3>
-        <p class="text-navy/60 font-body text-sm leading-relaxed">كل خامة ومنتج بيدخل مشروعك مرفق بشهادة ضمان رسمية من الموردين المعتمدين نفسهم.</p>
-      </div>
-
-      <div class="fade-up bg-white rounded-2xl p-8 border border-navy/5 shadow-sm text-center">
-        <div class="w-16 h-16 mx-auto rounded-full bg-navy flex items-center justify-center mb-5 seal">
-          <i class="fa-solid fa-file-invoice-dollar text-gold text-xl"></i>
-        </div>
-        <h3 class="font-display font-bold text-navy text-lg mb-3">مقايسة بدون مصاريف خفية</h3>
-        <p class="text-navy/60 font-body text-sm leading-relaxed">تسعير تفصيلي بند ببند من أول يوم، فتعرف تكلفتك النهائية كاملة قبل ما توقّع.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===================== CTA STRIP ===================== -->
-<section class="bg-navy border-t border-gold/10">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-16 text-center">
-    <h2 class="font-display font-extrabold text-xl md:text-3xl text-ivory mb-4">جاهز تشوف بيتك وهو بيتحول للأفضل؟</h2>
-    <p class="text-ivory/60 font-body text-sm md:text-base mb-8">احجز معاينتك المجانية الآن في حي الأشجار وكل مناطق 6 أكتوبر وزايد.</p>
-    <a href="https://wa.me/201091293456?text=أرغب%20في%20حجز%20معاينة%20مجانية" target="_blank" rel="noopener"
-       class="inline-flex items-center gap-2 bg-gold text-navy font-display font-bold px-8 py-4 rounded-full hover:bg-gold-light transition-colors text-sm md:text-base">
-      <i class="fa-brands fa-whatsapp text-lg"></i>
-      تواصل معنا على واتساب
+<!-- ============ CTA STRIP ============ -->
+<section class="py-16 bg-gradient-to-l from-navy-800 to-navy-900 border-y border-gold/15">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <h3 class="font-display font-extrabold text-2xl md:text-3xl text-white mb-4">جاهزون لتحويل مساحتك إلى تحفة فنية؟</h3>
+    <p class="text-gray-400 mb-8">احجز معاينتك المجانية اليوم في 6 أكتوبر والشيخ زايد</p>
+    <a href="https://wa.me/201091293456" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-gold text-navy font-display font-extrabold px-8 py-4 rounded-lg hover:bg-gold-light transition-all">
+      <i class="fa-brands fa-whatsapp text-lg"></i> احجز معاينتك الآن
     </a>
   </div>
 </section>
 
-<!-- ===================== FOOTER ===================== -->
-<footer id="footer" class="bg-navy-light bg-navy pt-16 pb-8 border-t border-gold/10">
+<!-- ============ FOOTER ============ -->
+<footer id="footer" class="bg-navy-950 pt-16 pb-8 border-t border-gold/10">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 pb-12">
+    <div class="grid md:grid-cols-3 gap-10 mb-12">
 
-      <!-- Brand -->
       <div>
         <div class="flex items-center gap-2 mb-4">
-          <span class="w-10 h-10 rounded-full border-2 border-gold flex items-center justify-center">
-            <i class="fa-solid fa-gem text-gold text-sm"></i>
-          </span>
-          <span class="font-display font-extrabold text-ivory text-lg">Trust <span class="text-gold">Estate</span></span>
+          <div class="w-10 h-10 rounded-full border-2 border-gold flex items-center justify-center">
+            <i class="fa-solid fa-crown text-gold text-sm"></i>
+          </div>
+          <span class="font-display font-extrabold text-white text-lg">Trust <span class="gold-text">Estate</span></span>
         </div>
-        <p class="text-ivory/50 font-body text-sm leading-relaxed">
-          Trust Estate للتشطيبات والديكور — شريكك الهندسي الموثوق لتنفيذ تشطيب فاخر بمعايير عالمية في حي الأشجار، 6 أكتوبر والشيخ زايد.
+        <p class="text-gray-400 text-sm leading-loose">
+          Trust Estate للتشطيبات والديكور — شريكك الموثوق لتنفيذ تشطيبات فاخرة بمعايير هندسية في حي الأشجار، 6 أكتوبر والشيخ زايد.
         </p>
+        <div class="flex gap-3 mt-5">
+          <a href="#" class="w-9 h-9 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-navy transition-all"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+          <a href="#" class="w-9 h-9 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-navy transition-all"><i class="fa-brands fa-instagram text-sm"></i></a>
+          <a href="#" class="w-9 h-9 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-navy transition-all"><i class="fa-brands fa-tiktok text-sm"></i></a>
+        </div>
       </div>
 
-      <!-- Contact -->
       <div>
-        <h4 class="font-display font-bold text-ivory text-base mb-4">تواصل معنا</h4>
-        <ul class="space-y-3 font-body text-sm text-ivory/60">
+        <h4 class="font-display font-bold text-white text-lg mb-5">تواصل معنا</h4>
+        <ul class="space-y-4 text-sm text-gray-400">
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-location-dot text-gold mt-1"></i>
+            <span>حي الأشجار - المول التجاري - عمارة 60 - أرضي مكتب 5</span>
+          </li>
           <li class="flex items-center gap-3">
             <i class="fa-solid fa-phone text-gold"></i>
             <a href="tel:01091293456" class="hover:text-gold transition-colors" dir="ltr">01091293456</a>
           </li>
           <li class="flex items-center gap-3">
-            <i class="fa-brands fa-whatsapp text-gold"></i>
-            <a href="https://wa.me/201091293456" target="_blank" rel="noopener" class="hover:text-gold transition-colors" dir="ltr">01091293456</a>
-          </li>
-          <li class="flex items-center gap-3">
             <i class="fa-solid fa-phone text-gold"></i>
             <a href="tel:01201022305" class="hover:text-gold transition-colors" dir="ltr">01201022305</a>
+          </li>
+          <li class="flex items-center gap-3">
+            <i class="fa-brands fa-whatsapp text-gold"></i>
+            <a href="https://wa.me/201091293456" target="_blank" rel="noopener" class="hover:text-gold transition-colors">تواصل واتساب مباشر</a>
           </li>
         </ul>
       </div>
 
-      <!-- Location -->
       <div>
-        <h4 class="font-display font-bold text-ivory text-base mb-4">مقرنا</h4>
-        <p class="text-ivory/60 font-body text-sm leading-relaxed mb-4">
-          حي الأشجار - المول التجاري - عمارة 60 - أرضي مكتب 5.
-        </p>
-        <a href="https://maps.app.goo.gl/txHe2AV9ZWHnWcq86" target="_blank" rel="noopener"
-           class="inline-flex items-center gap-2 text-gold text-sm font-body hover:text-gold-light transition-colors">
-          <i class="fa-solid fa-location-dot"></i>
-          افتح الموقع على الخريطة
+        <h4 class="font-display font-bold text-white text-lg mb-5">موقعنا</h4>
+        <p class="text-gray-400 text-sm mb-4 leading-loose">تفضل بزيارة مقرنا في حي الأشجار، أو حدد موقعنا مباشرة على خرائط جوجل</p>
+        <a href="https://maps.app.goo.gl/txHe2AV9ZWHnWcq86" target="_blank" rel="noopener" class="inline-flex items-center gap-2 border border-gold/40 text-gold px-5 py-3 rounded-lg text-sm font-display font-semibold hover:bg-gold hover:text-navy transition-all">
+          <i class="fa-solid fa-map-location-dot"></i> افتح الموقع على الخريطة
         </a>
       </div>
     </div>
 
     <div class="border-t border-gold/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
-      <p class="text-ivory/40 font-body text-xs">© <span id="year"></span> Trust Estate للتشطيبات والديكور. جميع الحقوق محفوظة.</p>
-      <p class="text-ivory/40 font-body text-xs">حي الأشجار - 6 أكتوبر وزايد</p>
+      <p class="text-gray-500 text-xs">© 2026 Trust Estate للتشطيبات والديكور. جميع الحقوق محفوظة.</p>
+      <p class="text-gray-500 text-xs">حي الأشجار — 6 أكتوبر وزايد</p>
     </div>
   </div>
 </footer>
 
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/201091293456?text=أرغب%20في%20الاستفسار%20عن%20خدمات%20Trust%20Estate" target="_blank" rel="noopener"
-   aria-label="تواصل عبر واتساب"
-   class="whatsapp-float fixed bottom-5 left-5 z-50 w-14 h-14 md:w-16 md:h-16 rounded-full bg-[#25D366] flex items-center justify-center text-white text-2xl md:text-3xl transition-transform">
-  <i class="fa-brands fa-whatsapp"></i>
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/201091293456" target="_blank" rel="noopener"
+   class="fixed bottom-6 left-6 z-50 w-14 h-14 md:w-16 md:h-16 rounded-full bg-[#25D366] flex items-center justify-center shadow-2xl wa-pulse hover:scale-105 transition-transform">
+  <i class="fa-brands fa-whatsapp text-white text-2xl md:text-3xl"></i>
 </a>
 
-<!-- ===================== SCRIPTS ===================== -->
 <script>
-  // Mobile menu toggle
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  menuBtn.addEventListener('click', () => {
-    const isOpen = !mobileMenu.classList.contains('hidden');
-    mobileMenu.classList.toggle('hidden');
-    menuBtn.setAttribute('aria-expanded', String(!isOpen));
-    menuBtn.innerHTML = isOpen ? '<i class="fa-solid fa-bars"></i>' : '<i class="fa-solid fa-xmark"></i>';
-  });
-  document.querySelectorAll('.mobile-link').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-      menuBtn.setAttribute('aria-expanded', 'false');
-      menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
-    });
-  });
+/* ==========================================================
+   PORTFOLIO DATA — استوديو التصميم المعماري
+   مهيّأ مستقبلاً لسحب المشروعات ديناميكياً من ملف CSV بدلاً من
+   المصفوفة الثابتة أدناه. مثال لدالة تحميل مستقبلية:
 
-  // Footer year
-  document.getElementById('year').textContent = new Date().getFullYear();
+   async function loadPortfolioFromCSV(url){
+     const res = await fetch(url);
+     const text = await res.text();
+     const rows = text.trim().split("\n").slice(1);
+     return rows.map(row => {
+       const [id, category, title, image, specs] = row.split(",");
+       return { id, category, title, image, specs: specs.split("|") };
+     });
+   }
+   // ثم: PORTFOLIO_DATA = await loadPortfolioFromCSV('data/portfolio.csv');
+   ========================================================== */
 
-  // Scroll reveal animation
-  const revealItems = document.querySelectorAll('.fade-up');
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  revealItems.forEach(item => revealObserver.observe(item));
+const PORTFOLIO_DATA = [
+  {
+    id: 1, category: 'living', title: 'ريسبشن Contemporary Chic',
+    image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80',
+    specs: ['تجاليد جدارية رخام إيطالي Silver Shadow', 'شرائح خشبية معالجة WPC', 'إضاءة Linear LED غير مباشرة', 'أرضيات بورسلين كبير الحجم Slab Porcelain']
+  },
+  {
+    id: 2, category: 'living', title: 'صالون Neo-Classic Elegance',
+    image: 'https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=800&q=80',
+    specs: ['بانوهات جدارية هندسية بنسب دقيقة', 'دهانات Jotun Fenomastic بتأثير مخملي مطفأ', 'أسقف معلقة بتشطيبات جبسية فرنسية']
+  },
+  {
+    id: 3, category: 'living', title: 'ليفنج روم Minimalist Loft',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
+    specs: ['مسارات إضاءة مغناطيسية Magnetic Track Lights', 'جدران بتأثير الخرسانة الديكورية Microcement', 'عزل صوتي متقدم']
+  },
+  {
+    id: 4, category: 'master', title: 'ماستر روم Warm Organic',
+    image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80',
+    specs: ['أرضيات HDF خشب طبيعي معالج ألماني', 'تجاليد جدارية قماشية مبطنة', 'سيناريوهات إضاءة ذكية مسائية']
+  },
+  {
+    id: 5, category: 'master', title: 'جناح نوم فندقي Modern Luxury',
+    image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=800&q=80',
+    specs: ['رأس سرير ممتد بتطعيمات معدنية Brushed Brass', 'ألوان حيادية مدروسة', 'وحدات إضاءة معلقة مخصصة']
+  },
+  {
+    id: 6, category: 'master', title: 'غرفة نوم هادئة Zen Aesthetic',
+    image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80',
+    specs: ['دهانات نقية بدون لمعة', 'ستائر مدمجة في تجاويف السقف Motorized Curtain Recesses']
+  },
+  {
+    id: 7, category: 'bathroom', title: 'حمام فندقي متكامل',
+    image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80',
+    specs: ['كابينة شاور سيكوريت معالج 10مم ضد التكلس', 'تجاويف جدارية مضاءة معزولة IP68', 'أنظمة صرف خطية مدفونة Linear Drains', 'أطقم معلقة وطرد جداري Grohe/Duravit']
+  },
+  {
+    id: 8, category: 'bathroom', title: 'حمام ضيوف Monolithic Dark',
+    image: 'https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=800&q=80',
+    specs: ['أحواض حجرية قائمة بذاتها', 'خلاطات جدارية بلون Gunmetal', 'مرايا ذكية مانعة للضباب وإضاءة محيطية']
+  },
+  {
+    id: 9, category: 'bathroom', title: 'حمام ماستر إسكندنافي',
+    image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=800&q=80',
+    specs: ['بورسلين خشبي مدموج مع أسطح كوارتز بيضاء', 'خلاطات دفن ألمانية', 'أرفف تجميل مدمجة في الرخام']
+  },
+  {
+    id: 10, category: 'kitchen', title: 'مطبخ معاصر بدون مقابض Handleless Matte',
+    image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80',
+    specs: ['خامات بوليمر وأكريليك مقاوم للبصمات', 'أسطح كوارتز مقاومة للحرارة والخدش', 'مفصلات وأنظمة سحب Blum النمساوية']
+  },
+  {
+    id: 11, category: 'kitchen', title: 'مطبخ مفتوح Island Concept',
+    image: 'https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=800&q=80',
+    specs: ['جزيرة وسطى مكسوة بالكوارتز', 'إضاءات موجهة مدمجة', 'تأسيس مخفي للأجهزة والتهوية']
+  },
+  {
+    id: 12, category: 'kitchen', title: 'مطبخ دافئ Classic Wood & Stone',
+    image: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=80',
+    specs: ['قشرة خشب طبيعي معالجة ضد الرطوبة', 'مساحات عمل واسعة', 'إضاءة وظيفية تحت الخزائن']
+  },
+  {
+    id: 13, category: 'closet', title: 'دريسنج روم زجاجية متكاملة',
+    image: 'https://images.unsplash.com/photo-1558997519-83ea9252edf8?auto=format&fit=crop&w=800&q=80',
+    specs: ['قطاعات ألومنيوم رفيعة وزجاج عاكس داكن', 'وحدات LED رأسية بحساسات حركة ذكية', 'تقسيمات خشبية منظمة']
+  },
+  {
+    id: 14, category: 'closet', title: 'دريسنج روم مفتوحة Open Wardrobe',
+    image: 'https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=800&q=80',
+    specs: ['أخشاب طبيعية مع تشطيبات قماشية داخلية', 'إضاءات دافئة 2700K', 'مرايا طولية كاملة']
+  },
+];
 
-  /* ============================================================
-     GALLERY DATA MODULE — Real Works & Inspiration Gallery
-     ------------------------------------------------------------
-     حالياً البيانات ثابتة (Static Array) داخل الكود، ومقسّمة بحقل
-     "category" يطابق قيم data-filter في تبويبات الفلترة أعلاه:
-     bathrooms | living | bedrooms | kitchens
+const galleryGrid = document.getElementById('gallery-grid');
+const emptyState = document.getElementById('empty-state');
 
-     الدالة loadGalleryFromCSV() جاهزة لسحب الوحدات مستقبلاً من ملف
-     CSV خارجي (مثلاً بعد رفعه على Google Sheets / GitHub) بمجرد
-     استدعاء: loadGalleryFromCSV('units.csv')
+const CATEGORY_LABELS = {
+  living: 'الاستقبال والريسبشن',
+  master: 'الأجنحة الرئيسية',
+  kitchen: 'المطابخ وأنظمة التخزين',
+  bathroom: 'الحمامات والسبا المنزلي',
+  closet: 'غرف الملابس'
+};
 
-     تنسيق الـ CSV المتوقع (سطر أول Header)، وحقل specs بفاصل "|":
-     title,category,categoryLabel,image,specs
-     مثال لسطر:
-     "حمام فندقي فاخر",bathrooms,الحمامات المودرن,https://...,"بند1|بند2|بند3"
-     ============================================================ */
+function buildWaLink(title) {
+  const msg = `مرحباً Trust Estate، أرغب في طلب استشارة هندسية لتطبيق نمط "${title}" مع تعديل المخططات التنفيذية لتناسب مساحة وحدتي وميزانيتي.`;
+  return `https://wa.me/201091293456?text=${encodeURIComponent(msg)}`;
+}
 
-  const defaultGalleryData = [
-    {
-      title: 'حمام فندقي فاخر بكابينة شاور سيكوريت',
-      category: 'bathrooms',
-      categoryLabel: 'الحمامات المودرن',
-      image: 'https://images.unsplash.com/photo-1771929662486-f793e08f0f16?q=80&w=1200&auto=format&fit=crop',
-      specs: [
-        'كابينة شاور زجاج سيكوريت جرار مصنفر',
-        'نيش حائطي ديكوري مدمج ببروفايل ليد مخفي (Warm Light)',
-        'قاعدة حمام معلقة وصندوق طرد دفن جروهي',
-        'بورسلين رمادي رخامي كبير الحجم',
-        'رخام جرانيت أسود في مساحات مختارة'
-      ]
-    },
-    {
-      title: 'ريسبشن مودرن بتجاليد بديل رخام',
-      category: 'living',
-      categoryLabel: 'الريسبشن والصالونات',
-      image: 'https://images.unsplash.com/photo-1758448755856-01d3add0177b?q=80&w=1200&auto=format&fit=crop',
-      specs: [
-        'تجاليد حوائط بديل رخام أوبن بوك',
-        'تجاليد بديل خشب WPC عازلة للرطوبة',
-        'بيت نور جبسيوم بورد بتصميم هادئ',
-        'مسارات إضاءة Magnetic Track Light قابلة للتوجيه'
-      ]
-    },
-    {
-      title: 'غرفة ماستر فندقية بإضاءة مريحة',
-      category: 'bedrooms',
-      categoryLabel: 'غرف النوم والماستر',
-      image: 'https://images.unsplash.com/photo-1752407828561-2450ced77979?q=80&w=1200&auto=format&fit=crop',
-      specs: [
-        'بانوهات فيوتك كلاسيك خلف رأس السرير',
-        'أرضيات HDF ألماني مقاومة للخدش',
-        'إضاءات مخفية دافئة ومريحة للعين',
-        'تصميم هادئ بخطوط نظيفة يناسب الفنادق'
-      ]
-    },
-    {
-      title: 'مطبخ أكريليك مودرن بلمسة عصرية',
-      category: 'kitchens',
-      categoryLabel: 'المطابخ الحديثة',
-      image: 'https://images.unsplash.com/photo-1722605090433-41d1183a792d?q=80&w=1200&auto=format&fit=crop',
-      specs: [
-        'رخام كوارتز مقاوم للبقع والحرارة',
-        'مفصلات هيدروليك بلوم نمساوي أصلية',
-        'ليد بروفايل تحت الوحدات العلوية',
-        'وحدات أكريليك عالية اللمعان سهلة التنظيف'
-      ]
-    }
-  ];
-
-  let currentGalleryData = [];
-
-  function cardMarkup(item, index) {
-    return `
-      <div class="work-card fade-up" data-category="${item.category}">
-        <div class="gallery-item rounded-xl aspect-[4/5] bg-navy-light cursor-pointer" data-index="${index}" role="button" tabindex="0" aria-label="معاينة ${item.title}">
-          <img src="${item.image}" alt="${item.title}" loading="lazy" class="w-full h-full object-cover">
-
-          <button class="zoom-btn absolute top-3 left-3 w-10 h-10 rounded-full bg-navy/80 border border-gold/50 text-gold flex items-center justify-center" data-index="${index}" aria-label="تكبير المعاينة">
-            <i class="fa-solid fa-magnifying-glass-plus text-sm"></i>
+function renderPortfolio(data) {
+  galleryGrid.innerHTML = data.map(item => `
+    <div class="project-card group card-gradient rounded-2xl overflow-hidden border border-gold/10 hover:border-gold/40 transition-all" data-category="${item.category}">
+      <div class="project-img-wrap relative">
+        <span class="project-tag bg-navy/70 text-gold text-[11px] font-display font-semibold px-3 py-1 rounded-full border border-gold/30">${CATEGORY_LABELS[item.category]}</span>
+        <img src="${item.image}" alt="${item.title}" loading="lazy">
+        <div class="project-overlay absolute inset-0 bg-navy/70 flex items-center justify-center">
+          <button class="zoom-btn w-12 h-12 rounded-full bg-gold text-navy flex items-center justify-center hover:scale-110 transition-transform"
+                  data-img="${item.image}" data-title="${item.title}" data-specs="${item.specs.join('|')}">
+            <i class="fa-solid fa-magnifying-glass-plus"></i>
           </button>
-
-          <div class="gallery-caption p-4">
-            <span class="block text-gold text-[11px] font-body mb-1">${item.categoryLabel}</span>
-            <span class="block text-ivory text-sm font-display font-bold leading-snug mb-2">${item.title}</span>
-          </div>
-        </div>
-
-        <!-- شريط المواصفات التنفيذي -->
-        <div class="flex flex-wrap gap-1.5 mt-3">
-          ${item.specs.slice(0, 3).map(spec => `<span class="spec-chip text-gold text-[10px] md:text-[11px] font-body px-2.5 py-1 rounded-full">${spec}</span>`).join('')}
-          ${item.specs.length > 3 ? `<span class="spec-chip text-gold text-[10px] md:text-[11px] font-body px-2.5 py-1 rounded-full">+${item.specs.length - 3}</span>` : ''}
         </div>
       </div>
-    `;
-  }
-
-  function renderGallery(items) {
-    currentGalleryData = items;
-    const grid = document.getElementById('gallery-grid');
-    grid.innerHTML = items.map((item, i) => cardMarkup(item, i)).join('');
-
-    // re-observe newly injected fade-up items
-    grid.querySelectorAll('.fade-up').forEach(item => revealObserver.observe(item));
-
-    // bind zoom / card click -> lightbox
-    grid.querySelectorAll('[data-index]').forEach(el => {
-      el.addEventListener('click', (e) => {
-        e.stopPropagation();
-        openLightbox(parseInt(el.getAttribute('data-index'), 10));
-      });
-      el.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') openLightbox(parseInt(el.getAttribute('data-index'), 10));
-      });
-    });
-
-    applyActiveFilter();
-  }
-
-  // ---------- Filter Tabs ----------
-  let activeFilter = 'all';
-  const filterButtons = document.querySelectorAll('.filter-tab');
-
-  function applyActiveFilter() {
-    document.querySelectorAll('.work-card').forEach(card => {
-      const matches = activeFilter === 'all' || card.getAttribute('data-category') === activeFilter;
-      card.classList.toggle('hide', !matches);
-    });
-  }
-
-  filterButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      activeFilter = btn.getAttribute('data-filter');
-      filterButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      applyActiveFilter();
-    });
-  });
-
-  // ---------- Lightbox ----------
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const lightboxTitle = document.getElementById('lightbox-title');
-  const lightboxCategory = document.getElementById('lightbox-category');
-  const lightboxSpecs = document.getElementById('lightbox-specs');
-  const lightboxClose = document.getElementById('lightbox-close');
-
-  function openLightbox(index) {
-    const item = currentGalleryData[index];
-    if (!item) return;
-    lightboxImg.src = item.image;
-    lightboxImg.alt = item.title;
-    lightboxTitle.textContent = item.title;
-    lightboxCategory.textContent = item.categoryLabel;
-    lightboxSpecs.innerHTML = item.specs.map(spec => `
-      <li class="flex items-start gap-3">
-        <i class="fa-solid fa-check text-gold mt-1"></i>
-        <span>${spec}</span>
-      </li>
-    `).join('');
-    lightbox.classList.remove('hidden-lb');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLightbox() {
-    lightbox.classList.add('hidden-lb');
-    document.body.style.overflow = '';
-  }
-
-  lightboxClose.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeLightbox();
-  });
-
-  // Very small CSV parser (simple format, no quoted-comma support beyond specs field)
-  function parseCSV(text) {
-    const lines = text.trim().split('\n');
-    const headers = lines.shift().split(',').map(h => h.trim());
-    return lines.map(line => {
-      const values = line.split(',').map(v => v.trim());
-      const obj = {};
-      headers.forEach((h, i) => obj[h] = values[i]);
-      obj.specs = obj.specs ? obj.specs.split('|').map(s => s.trim()) : [];
-      return obj;
-    });
-  }
-
-  // Ready for future CSV integration — call loadGalleryFromCSV('units.csv')
-  async function loadGalleryFromCSV(csvUrl) {
-    try {
-      const res = await fetch(csvUrl);
-      if (!res.ok) throw new Error('CSV not found');
-      const text = await res.text();
-      const data = parseCSV(text);
-      renderGallery(data);
-    } catch (err) {
-      console.warn('تعذر تحميل بيانات المعرض من CSV، سيتم عرض البيانات الافتراضية.', err);
-      renderGallery(defaultGalleryData);
-    }
-  }
-
-  // Render default data on load
-  renderGallery(defaultGalleryData);
-
-  // To switch to CSV-driven gallery later, simply uncomment the line below:
-  // loadGalleryFromCSV('units.csv');
-
-  /* ============================================================
-     MOODBOARD & DESIGN STYLES MODULE
-     ------------------------------------------------------------
-     إلهام معماري تفاعلي مقسّم حسب طراز التصميم، بخامات وبراندات
-     متاحة فعلياً في سوق أكتوبر والشيخ زايد. كل عنصر يحمل:
-     style / styleLabel (تطابق data-mfilter بالأعلى) + title +
-     specs (بنود تنفيذية) + image + waText (نص واتساب مخصص).
-     ============================================================ */
-
-  const moodboardData = [
-    {
-      style: 'classic',
-      styleLabel: 'نيو كلاسيك وبانوهات',
-      title: 'صالون وبانوهات نيو كلاسيك',
-      image: 'https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=800&q=80',
-      specs: [
-        'بانوهات فيوتك أصلية مقاومة للرطوبة',
-        'دهانات جوتن فينوماستيك (Fenomastic Pale Lime / Beige)',
-        'إضاءات ليد وورم 3000K لإحساس دافئ'
-      ]
-    },
-    {
-      style: 'classic',
-      styleLabel: 'نيو كلاسيك وبانوهات',
-      title: 'غرفة ماستر نيو كلاسيك',
-      image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80',
-      specs: [
-        'أرضيات HDF ألماني ماركة Krono',
-        'تجاليد قطيفة على الهيدبورد',
-        'مسارات سبوتات غاطسة فينوس'
-      ]
-    },
-    {
-      style: 'modern',
-      styleLabel: 'مودرن وماتيريال ميكس',
-      title: 'ريسبشن تجاليد WPC',
-      image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80',
-      specs: [
-        'بديل خشب WPC مع بديل رخام PVC مقاس 122×244',
-        'بروفايل ليد Magnetic Track Light',
-        'بورسلين الجوهرة / كليوباترا مقاس 60×120 فرز أول'
-      ]
-    },
-    {
-      style: 'modern',
-      styleLabel: 'مودرن وماتيريال ميكس',
-      title: 'صالة معيشة مينيمال',
-      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
-      specs: [
-        'دهانات جوتن صامتة بدرجات هادئة',
-        'شاشة معلقة مع رف طاير',
-        'خلفية ليد خفيفة خلف الشاشة'
-      ]
-    },
-    {
-      style: 'hotel-bathrooms',
-      styleLabel: 'حمامات فندقية وسباكة دفن',
-      title: 'حمام ماستر زجاجي',
-      image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80',
-      specs: [
-        'كابينة شاور سيكوريت 10مم مصنفر',
-        'نيش حائطي بسباكة دفن جروهي / ديورافيت',
-        'شريط ليد مقاوم للماء IP68',
-        'سيراميك ديكوري رمادي'
-      ]
-    },
-    {
-      style: 'hotel-bathrooms',
-      styleLabel: 'حمامات فندقية وسباكة دفن',
-      title: 'حمام ضيوف فاخر',
-      image: 'https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=800&q=80',
-      specs: [
-        'حوض ديكوري فوق الرخام',
-        'خلاطات دفن ألماني أسود مط',
-        'مرايا ليد تاتش سنسور'
-      ]
-    },
-    {
-      style: 'hotel-bathrooms',
-      styleLabel: 'حمامات فندقية وسباكة دفن',
-      title: 'حمام عملي',
-      image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=800&q=80',
-      specs: [
-        'بانيو قدم رخام طبيعي مانع للانزلاق',
-        'سيراميك قطع ليزر بدقة تركيب عالية'
-      ]
-    },
-    {
-      style: 'kitchens',
-      styleLabel: 'مطابخ ودريسنج مودرن',
-      title: 'مطبخ بولاك / أكريليك تركي',
-      image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80',
-      specs: [
-        'رخام كوارتز صناعي مقاوم للحرارة والبقع',
-        'مفصلات بلوم نمساوي سوفت كلوز',
-        'إضاءة ليد أسفل العلب العلوية'
-      ]
-    },
-    {
-      style: 'kitchens',
-      styleLabel: 'مطابخ ودريسنج مودرن',
-      title: 'مطبخ خشب كونتر جودوود وقشرة أرو',
-      image: 'https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=800&q=80',
-      specs: [
-        'تصميم أوبن كيتشن متكامل',
-        'بار رخام مستورد',
-        'كونتر جودوود وقشرة أرو طبيعية'
-      ]
-    },
-    {
-      style: 'kitchens',
-      styleLabel: 'مطابخ ودريسنج مودرن',
-      title: 'دريسنج روم زجاجي',
-      image: 'https://images.unsplash.com/photo-1558997519-83ea9252edf8?auto=format&fit=crop&w=800&q=80',
-      specs: [
-        'ألومنيوم قطاع جورجيا مع زجاج فاميه',
-        'إضاءة ليد داخلية على حساس حركة'
-      ]
-    }
-  ];
-
-  function moodCardMarkup(item) {
-    const waText = encodeURIComponent(`أرغب في معرفة تكلفة تشطيب على طراز: ${item.title}`);
-    return `
-      <div class="mood-card fade-up bg-white rounded-2xl overflow-hidden shadow-sm" data-style="${item.style}">
-        <div class="relative h-56 overflow-hidden">
-          <img src="${item.image}" alt="${item.title}" loading="lazy" class="mood-img w-full h-full object-cover">
-          <span class="absolute top-3 right-3 material-badge text-gold text-[10px] font-body px-3 py-1.5 rounded-full">
-            الخامات: جوتن | السويدي | فيوتك | جروهي
-          </span>
+      <div class="p-5">
+        <h3 class="font-display font-bold text-white text-base mb-3">${item.title}</h3>
+        <div class="flex flex-wrap gap-2 mb-4">
+          ${item.specs.map(s => `<span class="spec-chip bg-gold/10 text-gold border border-gold/20 px-2.5 py-1 rounded-full">${s}</span>`).join('')}
         </div>
-        <div class="p-6">
-          <span class="text-gold-dark text-[11px] font-body">${item.styleLabel}</span>
-          <h3 class="font-display font-extrabold text-navy text-lg mt-1 mb-4">${item.title}</h3>
-
-          <ul class="space-y-2 font-body text-sm text-navy/65 mb-6">
-            ${item.specs.map(spec => `
-              <li class="flex items-start gap-2.5">
-                <i class="fa-solid fa-check text-gold-dark mt-1 text-xs"></i>
-                <span>${spec}</span>
-              </li>
-            `).join('')}
-          </ul>
-
-          <a href="https://wa.me/201091293456?text=${waText}" target="_blank" rel="noopener"
-             class="flex items-center justify-center gap-2 border border-navy/15 text-navy font-display font-bold py-2.5 rounded-full hover:bg-navy hover:text-gold hover:border-navy transition-colors text-xs md:text-sm">
-            <i class="fa-brands fa-whatsapp"></i>
-            احسب تكلفة تشطيب الطراز ده واتساب
-          </a>
-        </div>
+        <a href="${buildWaLink(item.title)}" target="_blank" rel="noopener"
+           class="flex items-center justify-center gap-2 border border-gold/40 text-gold font-display font-semibold text-xs py-2.5 rounded-lg hover:bg-gold hover:text-navy transition-all">
+          <i class="fa-brands fa-whatsapp"></i> طلب استشارة هندسية لتطبيق هذا النمط
+        </a>
       </div>
-    `;
-  }
+    </div>
+  `).join('');
 
-  function renderMoodboard(items) {
-    const grid = document.getElementById('moodboard-grid');
-    grid.innerHTML = items.map(moodCardMarkup).join('');
-    grid.querySelectorAll('.fade-up').forEach(el => revealObserver.observe(el));
-    applyMoodFilter();
-  }
+  bindZoomButtons();
+}
 
-  let activeMoodFilter = 'all';
-  const moodFilterButtons = document.querySelectorAll('.mfilter-tab');
+function filterPortfolio(filter) {
+  const cards = document.querySelectorAll('.project-card');
+  let visibleCount = 0;
+  cards.forEach(card => {
+    const match = filter === 'all' || card.dataset.category === filter;
+    card.classList.toggle('hide', !match);
+    if (match) visibleCount++;
+  });
+  emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+}
 
-  function applyMoodFilter() {
-    document.querySelectorAll('.mood-card').forEach(card => {
-      const matches = activeMoodFilter === 'all' || card.getAttribute('data-style') === activeMoodFilter;
-      card.classList.toggle('hide', !matches);
-    });
-  }
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterPortfolio(btn.dataset.filter);
+  });
+});
 
-  moodFilterButtons.forEach(btn => {
+// Lightbox
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxTitle = document.getElementById('lightbox-title');
+const lightboxDesc = document.getElementById('lightbox-desc');
+const lightboxWa = document.getElementById('lightbox-wa');
+
+function bindZoomButtons() {
+  document.querySelectorAll('.zoom-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      activeMoodFilter = btn.getAttribute('data-mfilter');
-      moodFilterButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      applyMoodFilter();
+      const title = btn.dataset.title;
+      lightboxImg.src = btn.dataset.img;
+      lightboxTitle.textContent = title;
+      lightboxDesc.textContent = btn.dataset.specs.split('|').join(' · ');
+      lightboxWa.href = buildWaLink(title);
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+      document.body.style.overflow = 'hidden';
     });
   });
+}
 
-  renderMoodboard(moodboardData);
+document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
+function closeLightbox() {
+  lightbox.classList.add('hidden');
+  lightbox.classList.remove('flex');
+  document.body.style.overflow = '';
+}
+
+renderPortfolio(PORTFOLIO_DATA);
+
+// Mobile menu toggle
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+menuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+});
+document.querySelectorAll('#mobile-menu a').forEach(link => {
+  link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+});
+
+// Header shadow on scroll
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('site-header');
+  if (window.scrollY > 20) {
+    header.classList.add('shadow-lg', 'shadow-black/30');
+  } else {
+    header.classList.remove('shadow-lg', 'shadow-black/30');
+  }
+});
 </script>
 
 </body>
