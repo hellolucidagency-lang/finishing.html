@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Trust Estate | تشطيبات وديكور فاخر - 6 أكتوبر وزايد</title>
+<meta name="description" content="Trust Estate للتشطيبات والديكور - حي الأشجار 6 أكتوبر وزايد. معاينات مجانية، إشراف هندسي متكامل، وباقات تشطيب فاخرة بأفضل البراندات.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<!-- FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: {
+            DEFAULT: '#0B1325',
+            light: '#131C33',
+            lighter: '#1B2740',
+          },
+          gold: {
+            DEFAULT: '#C5A880',
+            light: '#DCC9A6',
+            dark: '#A88A5F',
+          },
+          ivory: '#FAF7F0',
+        },
+        fontFamily: {
+          display: ['Cairo', 'sans-serif'],
+          body: ['Tajawal', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Tajawal', sans-serif; background-color: #FAF7F0; }
+  h1, h2, h3, h4, .font-display { font-family: 'Cairo', sans-serif; }
+
+  ::selection { background: #C5A880; color: #0B1325; }
+
+  /* Subtle geometric seal motif */
+  .seal {
+    position: relative;
+  }
+  .seal::before {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    border: 1px solid #C5A880;
+    border-radius: 9999px;
+    opacity: .5;
+  }
+
+  /* Islamic-inspired divider */
+  .divider-motif {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .75rem;
+  }
+  .divider-motif::before,
+  .divider-motif::after {
+    content: '';
+    height: 1px;
+    width: 40px;
+    background: linear-gradient(90deg, transparent, #C5A880);
+  }
+  .divider-motif::after { background: linear-gradient(90deg, #C5A880, transparent); }
+
+  .bg-noise {
+    background-image: radial-gradient(#C5A880 0.5px, transparent 0.5px);
+    background-size: 22px 22px;
+  }
+
+  .card-gold-border {
+    border: 1px solid rgba(197,168,128,.25);
+    transition: border-color .35s ease, transform .35s ease, box-shadow .35s ease;
+  }
+  .card-gold-border:hover {
+    border-color: rgba(197,168,128,.75);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px -20px rgba(197,168,128,.35);
+  }
+
+  .package-featured {
+    box-shadow: 0 0 0 1px #C5A880, 0 25px 60px -25px rgba(197,168,128,.5);
+  }
+
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+  .fade-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .gallery-item { position: relative; overflow: hidden; }
+  .gallery-item img { transition: transform .6s ease, filter .6s ease; }
+  .gallery-item:hover img { transform: scale(1.08); filter: brightness(.75); }
+  .gallery-caption {
+    position: absolute; inset: auto 0 0 0;
+    background: linear-gradient(to top, rgba(11,19,37,.95), transparent);
+  }
+
+  .whatsapp-float {
+    box-shadow: 0 10px 30px -8px rgba(37,211,102,.6);
+  }
+  .whatsapp-float:hover { transform: scale(1.08); }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #0B1325; }
+  ::-webkit-scrollbar-thumb { background: #C5A880; border-radius: 999px; }
+
+  a, button { -webkit-tap-highlight-color: transparent; }
+  :focus-visible { outline: 2px solid #C5A880; outline-offset: 3px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+
+<body class="text-navy antialiased overflow-x-hidden">
+
+<!-- ===================== HEADER ===================== -->
+<header id="site-header" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-navy/95 backdrop-blur border-b border-gold/20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+
+      <!-- Logo -->
+      <a href="#hero" class="flex items-center gap-2 group">
+        <span class="w-10 h-10 md:w-11 md:h-11 rounded-full border-2 border-gold flex items-center justify-center shrink-0 group-hover:bg-gold/10 transition-colors">
+          <i class="fa-solid fa-gem text-gold text-sm md:text-base"></i>
+        </span>
+        <span class="flex flex-col leading-tight">
+          <span class="font-display font-extrabold text-ivory text-base md:text-lg tracking-wide">Trust <span class="text-gold">Estate</span></span>
+          <span class="text-[10px] md:text-xs text-gold/70 font-body">للتشطيبات والديكور</span>
+        </span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-8 font-body text-sm text-ivory/85">
+        <a href="#hero" class="hover:text-gold transition-colors">الرئيسية</a>
+        <a href="#packages" class="hover:text-gold transition-colors">الباقات</a>
+        <a href="#gallery" class="hover:text-gold transition-colors">المعرض</a>
+        <a href="#guarantees" class="hover:text-gold transition-colors">الضمانات</a>
+        <a href="#footer" class="hover:text-gold transition-colors">تواصل معنا</a>
+      </nav>
+
+      <!-- CTA buttons -->
+      <div class="flex items-center gap-2 md:gap-3">
+        <a href="tel:01091293456" aria-label="اتصال مباشر" class="w-10 h-10 rounded-full border border-gold/50 text-gold flex items-center justify-center hover:bg-gold hover:text-navy transition-colors">
+          <i class="fa-solid fa-phone"></i>
+        </a>
+        <a href="https://wa.me/201091293456" target="_blank" rel="noopener" class="flex items-center gap-2 bg-gold text-navy font-display font-bold text-xs md:text-sm px-3 md:px-5 py-2.5 rounded-full hover:bg-gold-light transition-colors">
+          <i class="fa-brands fa-whatsapp text-base"></i>
+          <span class="hidden sm:inline">واتساب فوري</span>
+        </a>
+
+        <!-- Mobile menu toggle -->
+        <button id="menu-btn" aria-label="فتح القائمة" aria-expanded="false" class="lg:hidden w-10 h-10 rounded-full border border-gold/40 text-gold flex items-center justify-center">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile nav panel -->
+  <div id="mobile-menu" class="lg:hidden hidden border-t border-gold/20 bg-navy">
+    <nav class="flex flex-col px-6 py-4 gap-4 font-body text-ivory/90 text-sm">
+      <a href="#hero" class="mobile-link py-1">الرئيسية</a>
+      <a href="#packages" class="mobile-link py-1">الباقات</a>
+      <a href="#gallery" class="mobile-link py-1">المعرض</a>
+      <a href="#guarantees" class="mobile-link py-1">الضمانات</a>
+      <a href="#footer" class="mobile-link py-1">تواصل معنا</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section id="hero" class="relative bg-navy bg-noise pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-navy via-navy/95 to-navy"></div>
+  <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-gold/10 blur-3xl"></div>
+  <div class="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-gold/10 blur-3xl"></div>
+
+  <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+    <div class="inline-flex items-center gap-2 border border-gold/40 rounded-full px-4 py-1.5 mb-6 fade-up">
+      <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
+      <span class="text-gold text-xs md:text-sm font-body">معاينات مجانية تماماً داخل 6 أكتوبر وزايد</span>
+    </div>
+
+    <h1 class="fade-up font-display font-black text-3xl sm:text-4xl md:text-6xl leading-tight text-ivory mb-6">
+      نحوّل جدرانكم الفارغة <br class="hidden sm:block">
+      إلى <span class="text-gold">توقيع فخامة</span> يليق بكم
+    </h1>
+
+    <p class="fade-up text-ivory/70 text-sm md:text-lg leading-relaxed max-w-2xl mx-auto mb-10 font-body">
+      Trust Estate للتشطيبات والديكور — إشراف هندسي متكامل من أول المقايسة وحتى تسليم المفتاح،
+      ببراندات أصلية موثقة وضمانات مكتوبة، في حي الأشجار وكل فروع 6 أكتوبر والشيخ زايد.
+    </p>
+
+    <div class="fade-up flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="https://wa.me/201091293456?text=أرغب%20في%20حجز%20معاينة%20مجانية" target="_blank" rel="noopener"
+         class="w-full sm:w-auto flex items-center justify-center gap-2 bg-gold text-navy font-display font-bold px-8 py-4 rounded-full hover:bg-gold-light transition-colors text-sm md:text-base">
+        <i class="fa-brands fa-whatsapp text-lg"></i>
+        احجز معاينتك المجانية الآن
+      </a>
+      <a href="#packages"
+         class="w-full sm:w-auto flex items-center justify-center gap-2 border border-gold/50 text-ivory font-display font-bold px-8 py-4 rounded-full hover:border-gold hover:text-gold transition-colors text-sm md:text-base">
+        استعرض الباقات
+        <i class="fa-solid fa-arrow-left-long"></i>
+      </a>
+    </div>
+
+    <!-- Trust stats -->
+    <div class="fade-up grid grid-cols-3 gap-4 md:gap-8 mt-16 md:mt-20 max-w-2xl mx-auto">
+      <div class="border-t border-gold/20 pt-4">
+        <div class="font-display font-extrabold text-gold text-xl md:text-3xl">0%</div>
+        <div class="text-ivory/60 text-[11px] md:text-sm font-body mt-1">مصاريف معاينة</div>
+      </div>
+      <div class="border-t border-gold/20 pt-4">
+        <div class="font-display font-extrabold text-gold text-xl md:text-3xl">100%</div>
+        <div class="text-ivory/60 text-[11px] md:text-sm font-body mt-1">إشراف هندسي</div>
+      </div>
+      <div class="border-t border-gold/20 pt-4">
+        <div class="font-display font-extrabold text-gold text-xl md:text-3xl">ضمان</div>
+        <div class="text-ivory/60 text-[11px] md:text-sm font-body mt-1">مكتوب وموثق</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PACKAGES ===================== -->
+<section id="packages" class="bg-ivory py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="text-gold-dark font-display font-bold text-xs md:text-sm tracking-widest">باقات التشطيب</span>
+      <div class="divider-motif my-3"><i class="fa-solid fa-gem text-gold text-xs"></i></div>
+      <h2 class="font-display font-black text-2xl md:text-4xl text-navy">ثلاث درجات من الفخامة، بمواصفات موثقة</h2>
+      <p class="text-navy/60 font-body mt-4 text-sm md:text-base">اختر الباقة التي تناسب رؤيتك، وكل بند فيها مكتوب بالبراند والموديل داخل العقد.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-start">
+
+      <!-- Package 1: Super Lux -->
+      <div class="fade-up card-gold-border bg-navy rounded-2xl p-7 md:p-8 flex flex-col h-full">
+        <div class="w-14 h-14 rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center mb-6">
+          <i class="fa-solid fa-rings-wedding text-gold text-xl"></i>
+        </div>
+        <span class="text-gold/70 font-body text-xs mb-1">للعرسان</span>
+        <h3 class="font-display font-extrabold text-ivory text-xl md:text-2xl mb-4">سوبر لوكس</h3>
+        <p class="text-ivory/50 font-body text-sm mb-6 leading-relaxed">التشطيب المتكامل اللي بيبدأ بيه العريس حياته، بأسماء موردين تقدر تتأكد منها بنفسك.</p>
+
+        <ul class="space-y-3 font-body text-sm text-ivory/80 mb-8 flex-1">
+          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>تأسيس أسلاك كهرباء <span class="text-gold">السويدي إليكتريك</span> أصلية 100%</span></li>
+          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>تمديدات سباكة <span class="text-gold">الشريف / BR</span> بضمان رسمي</span></li>
+          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>دهانات <span class="text-gold">جوتن فينوماستيك</span> فائقة الجودة</span></li>
+          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>سيراميك وبورسلين <span class="text-gold">فرز أول</span> مضمون المصدر</span></li>
+          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>أسقف <span class="text-gold">جبسيوم بورد</span> بديكورات هادئة وأنيقة</span></li>
+        </ul>
+
+        <a href="https://wa.me/201091293456?text=أرغب%20في%20الاستفسار%20عن%20باقة%20سوبر%20لوكس" target="_blank" rel="noopener"
+           class="text-center border border-gold/50 text-gold font-display font-bold py-3 rounded-full hover:bg-gold hover:text-navy transition-colors text-sm">
+          استفسر عن الباقة
+        </a>
+      </div>
+
+      <!-- Package 2: Ultra Lux (Featured) -->
+      <div class="fade-up package-featured relative bg-navy rounded-2xl p-7 md:p-8 flex flex-col h-full md:-mt-6">
+        <div class="absolute -top-3 right-1/2 translate-x-1/2 bg-gold text-navy text-[11px] font-display font-bold px-4 py-1 rounded-full whitespace-nowrap">
+          الأكثر طلباً
+        </div>
+        <div class="w-14 h-14 rounded-full bg-gold/15 border border-gold flex items-center justify-center mb-6">
+          <i class="fa-solid fa-crown text-gold text-xl"></i>
+        </div>
+        <span class="text-gold/70 font-body text-xs mb-1">VIP</span>
+        <h3 class="font-display font-extrabold text-ivory text-xl md:text-2xl mb-4">ألترا لوكس</h3>
+        <p class="text-ivory/50 font-body text-sm mb-6 leading-relaxed">تشطيب بحس تصميمي عصري وتقنيات ذكية، لمن يبحث عن تفاصيل مختلفة فعلاً.</p>
+
+        <ul class="space-y-3 font-body text-sm text-ivory/80 mb-8 flex-1">
+          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>تجاليد <span class="text-gold">بديل رخام</span> و<span class="text-gold">بديل خشب WPC</span> عازلة للرطوبة</span></li>
+          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>إضاءات <span class="text-gold">بروفايل ليد</span> مخفية في الأسقف والحوائط</span></li>
+          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>أدوات صحية معلقة <span class="text-gold">ديورافيت / جروهي</span></span></li>
+          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>أبواب <span class="text-gold">تركي</span> فاخرة بمقاسات مضبوطة</span></li>
+          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>تأسيس كامل لمنظومة <span class="text-gold">Smart Home</span></span></li>
+        </ul>
+
+        <a href="https://wa.me/201091293456?text=أرغب%20في%20الاستفسار%20عن%20باقة%20ألترا%20لوكس" target="_blank" rel="noopener"
+           class="text-center bg-gold text-navy font-display font-bold py-3 rounded-full hover:bg-gold-light transition-colors text-sm">
+          استفسر عن الباقة
+        </a>
+      </div>
+
+      <!-- Package 3: Royal Custom -->
+      <div class="fade-up card-gold-border bg-navy rounded-2xl p-7 md:p-8 flex flex-col h-full">
+        <div class="w-14 h-14 rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center mb-6">
+          <i class="fa-solid fa-chess-king text-gold text-xl"></i>
+        </div>
+        <span class="text-gold/70 font-body text-xs mb-1">Custom Signature</span>
+        <h3 class="font-display font-extrabold text-ivory text-xl md:text-2xl mb-4">الباقة الملكية</h3>
+        <p class="text-ivory/50 font-body text-sm mb-6 leading-relaxed">توقيع خاص بالكامل، من التصميم وحتى آخر تفصيلة، بلا سقف للتخصيص.</p>
+
+        <ul class="space-y-3 font-body text-sm text-ivory/80 mb-8 flex-1">
+          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>تصميم <span class="text-gold">3D</span> خاص لكل ركن في الوحدة قبل التنفيذ</span></li>
+          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span><span class="text-gold">رخام طبيعي مستورد</span> منتقى حسب الطلب</span></li>
+          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>تكييف <span class="text-gold">مركزي</span> بتوزيع هندسي مدروس</span></li>
+          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span>تحكم <span class="text-gold">ذكي كامل</span> في الإضاءة والستائر والأمان</span></li>
+          <li class="flex items-start gap-3"><i class="fa-solid fa-check text-gold mt-1"></i><span><span class="text-gold">ضمان شامل</span> على التنفيذ والتوريدات</span></li>
+        </ul>
+
+        <a href="https://wa.me/201091293456?text=أرغب%20في%20الاستفسار%20عن%20الباقة%20الملكية" target="_blank" rel="noopener"
+           class="text-center border border-gold/50 text-gold font-display font-bold py-3 rounded-full hover:bg-gold hover:text-navy transition-colors text-sm">
+          استفسر عن الباقة
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALLERY ===================== -->
+<section id="gallery" class="bg-navy py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="text-gold font-display font-bold text-xs md:text-sm tracking-widest">من أعمالنا</span>
+      <div class="divider-motif my-3"><i class="fa-solid fa-gem text-gold text-xs"></i></div>
+      <h2 class="font-display font-black text-2xl md:text-4xl text-ivory">نماذج تنفيذ حقيقية</h2>
+      <p class="text-ivory/50 font-body mt-4 text-sm md:text-base">لمحة من الوحدات اللي نفذناها في حي الأشجار وامتداداتها.</p>
+    </div>
+
+    <div id="gallery-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+      <!-- injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GUARANTEES ===================== -->
+<section id="guarantees" class="bg-ivory py-20 md:py-28">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="text-gold-dark font-display font-bold text-xs md:text-sm tracking-widest">التزامنا تجاهك</span>
+      <div class="divider-motif my-3"><i class="fa-solid fa-gem text-gold text-xs"></i></div>
+      <h2 class="font-display font-black text-2xl md:text-4xl text-navy">ضمانات مكتوبة، لا وعود شفهية</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+
+      <div class="fade-up bg-white rounded-2xl p-8 border border-navy/5 shadow-sm text-center">
+        <div class="w-16 h-16 mx-auto rounded-full bg-navy flex items-center justify-center mb-5 seal">
+          <i class="fa-solid fa-clock text-gold text-xl"></i>
+        </div>
+        <h3 class="font-display font-bold text-navy text-lg mb-3">التزام زمني بغرامة تأخير</h3>
+        <p class="text-navy/60 font-body text-sm leading-relaxed">مدة التنفيذ مكتوبة في العقد، وأي تأخير من جانبنا يقابله غرامة مالية محددة سلفاً بدون نقاش.</p>
+      </div>
+
+      <div class="fade-up bg-white rounded-2xl p-8 border border-navy/5 shadow-sm text-center">
+        <div class="w-16 h-16 mx-auto rounded-full bg-navy flex items-center justify-center mb-5 seal">
+          <i class="fa-solid fa-certificate text-gold text-xl"></i>
+        </div>
+        <h3 class="font-display font-bold text-navy text-lg mb-3">شهادات ضمان معتمدة</h3>
+        <p class="text-navy/60 font-body text-sm leading-relaxed">كل خامة ومنتج بيدخل مشروعك مرفق بشهادة ضمان رسمية من الموردين المعتمدين نفسهم.</p>
+      </div>
+
+      <div class="fade-up bg-white rounded-2xl p-8 border border-navy/5 shadow-sm text-center">
+        <div class="w-16 h-16 mx-auto rounded-full bg-navy flex items-center justify-center mb-5 seal">
+          <i class="fa-solid fa-file-invoice-dollar text-gold text-xl"></i>
+        </div>
+        <h3 class="font-display font-bold text-navy text-lg mb-3">مقايسة بدون مصاريف خفية</h3>
+        <p class="text-navy/60 font-body text-sm leading-relaxed">تسعير تفصيلي بند ببند من أول يوم، فتعرف تكلفتك النهائية كاملة قبل ما توقّع.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA STRIP ===================== -->
+<section class="bg-navy border-t border-gold/10">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-16 text-center">
+    <h2 class="font-display font-extrabold text-xl md:text-3xl text-ivory mb-4">جاهز تشوف بيتك وهو بيتحول للأفضل؟</h2>
+    <p class="text-ivory/60 font-body text-sm md:text-base mb-8">احجز معاينتك المجانية الآن في حي الأشجار وكل مناطق 6 أكتوبر وزايد.</p>
+    <a href="https://wa.me/201091293456?text=أرغب%20في%20حجز%20معاينة%20مجانية" target="_blank" rel="noopener"
+       class="inline-flex items-center gap-2 bg-gold text-navy font-display font-bold px-8 py-4 rounded-full hover:bg-gold-light transition-colors text-sm md:text-base">
+      <i class="fa-brands fa-whatsapp text-lg"></i>
+      تواصل معنا على واتساب
+    </a>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer id="footer" class="bg-navy-light bg-navy pt-16 pb-8 border-t border-gold/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 pb-12">
+
+      <!-- Brand -->
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <span class="w-10 h-10 rounded-full border-2 border-gold flex items-center justify-center">
+            <i class="fa-solid fa-gem text-gold text-sm"></i>
+          </span>
+          <span class="font-display font-extrabold text-ivory text-lg">Trust <span class="text-gold">Estate</span></span>
+        </div>
+        <p class="text-ivory/50 font-body text-sm leading-relaxed">
+          Trust Estate للتشطيبات والديكور — شريكك الهندسي الموثوق لتنفيذ تشطيب فاخر بمعايير عالمية في حي الأشجار، 6 أكتوبر والشيخ زايد.
+        </p>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="font-display font-bold text-ivory text-base mb-4">تواصل معنا</h4>
+        <ul class="space-y-3 font-body text-sm text-ivory/60">
+          <li class="flex items-center gap-3">
+            <i class="fa-solid fa-phone text-gold"></i>
+            <a href="tel:01091293456" class="hover:text-gold transition-colors" dir="ltr">01091293456</a>
+          </li>
+          <li class="flex items-center gap-3">
+            <i class="fa-brands fa-whatsapp text-gold"></i>
+            <a href="https://wa.me/201091293456" target="_blank" rel="noopener" class="hover:text-gold transition-colors" dir="ltr">01091293456</a>
+          </li>
+          <li class="flex items-center gap-3">
+            <i class="fa-solid fa-phone text-gold"></i>
+            <a href="tel:01201022305" class="hover:text-gold transition-colors" dir="ltr">01201022305</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Location -->
+      <div>
+        <h4 class="font-display font-bold text-ivory text-base mb-4">مقرنا</h4>
+        <p class="text-ivory/60 font-body text-sm leading-relaxed mb-4">
+          حي الأشجار - المول التجاري - عمارة 60 - أرضي مكتب 5.
+        </p>
+        <a href="https://maps.app.goo.gl/txHe2AV9ZWHnWcq86" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 text-gold text-sm font-body hover:text-gold-light transition-colors">
+          <i class="fa-solid fa-location-dot"></i>
+          افتح الموقع على الخريطة
+        </a>
+      </div>
+    </div>
+
+    <div class="border-t border-gold/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
+      <p class="text-ivory/40 font-body text-xs">© <span id="year"></span> Trust Estate للتشطيبات والديكور. جميع الحقوق محفوظة.</p>
+      <p class="text-ivory/40 font-body text-xs">حي الأشجار - 6 أكتوبر وزايد</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/201091293456?text=أرغب%20في%20الاستفسار%20عن%20خدمات%20Trust%20Estate" target="_blank" rel="noopener"
+   aria-label="تواصل عبر واتساب"
+   class="whatsapp-float fixed bottom-5 left-5 z-50 w-14 h-14 md:w-16 md:h-16 rounded-full bg-[#25D366] flex items-center justify-center text-white text-2xl md:text-3xl transition-transform">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => {
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden');
+    menuBtn.setAttribute('aria-expanded', String(!isOpen));
+    menuBtn.innerHTML = isOpen ? '<i class="fa-solid fa-bars"></i>' : '<i class="fa-solid fa-xmark"></i>';
+  });
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    });
+  });
+
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Scroll reveal animation
+  const revealItems = document.querySelectorAll('.fade-up');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealItems.forEach(item => revealObserver.observe(item));
+
+  /* ============================================================
+     GALLERY DATA MODULE
+     ------------------------------------------------------------
+     حالياً البيانات ثابتة (Static Array) داخل الكود.
+     الدالة loadGalleryFromCSV() جاهزة لسحب الوحدات مستقبلاً من
+     ملف CSV خارجي (مثلاً بعد رفعه على Google Sheets / GitHub)
+     بمجرد استدعاء: loadGalleryFromCSV('units.csv')
+     تنسيق الـ CSV المتوقع (سطر أول Header):
+     title,category,image
+     ============================================================ */
+
+  const defaultGalleryData = [
+    {
+      title: 'ريسبشن ملكي بلمسات ذهبية',
+      category: 'ريسبشن',
+      image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=900&auto=format&fit=crop'
+    },
+    {
+      title: 'غرفة ماستر بتصميم هادئ وفاخر',
+      category: 'ماستر بدروم',
+      image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=900&auto=format&fit=crop'
+    },
+    {
+      title: 'مطبخ عصري بخامات مقاومة',
+      category: 'مطبخ',
+      image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=900&auto=format&fit=crop'
+    },
+    {
+      title: 'حمام معلق بأدوات صحية فاخرة',
+      category: 'حمام',
+      image: 'https://images.unsplash.com/photo-1620626011761-996317b8d101?q=80&w=900&auto=format&fit=crop'
+    }
+  ];
+
+  function renderGallery(items) {
+    const grid = document.getElementById('gallery-grid');
+    grid.innerHTML = items.map(item => `
+      <div class="gallery-item fade-up rounded-xl aspect-[3/4] bg-navy-light">
+        <img src="${item.image}" alt="${item.title}" loading="lazy" class="w-full h-full object-cover">
+        <div class="gallery-caption p-4">
+          <span class="block text-gold text-[11px] font-body mb-1">${item.category}</span>
+          <span class="block text-ivory text-sm font-display font-bold leading-snug">${item.title}</span>
+        </div>
+      </div>
+    `).join('');
+
+    // re-observe newly injected fade-up items
+    grid.querySelectorAll('.fade-up').forEach(item => revealObserver.observe(item));
+  }
+
+  // Very small CSV parser (no external commas inside quotes assumed simple format)
+  function parseCSV(text) {
+    const lines = text.trim().split('\n');
+    const headers = lines.shift().split(',').map(h => h.trim());
+    return lines.map(line => {
+      const values = line.split(',').map(v => v.trim());
+      const obj = {};
+      headers.forEach((h, i) => obj[h] = values[i]);
+      return obj;
+    });
+  }
+
+  // Ready for future CSV integration — call loadGalleryFromCSV('units.csv')
+  async function loadGalleryFromCSV(csvUrl) {
+    try {
+      const res = await fetch(csvUrl);
+      if (!res.ok) throw new Error('CSV not found');
+      const text = await res.text();
+      const data = parseCSV(text);
+      renderGallery(data);
+    } catch (err) {
+      console.warn('تعذر تحميل بيانات المعرض من CSV، سيتم عرض البيانات الافتراضية.', err);
+      renderGallery(defaultGalleryData);
+    }
+  }
+
+  // Render default data on load
+  renderGallery(defaultGalleryData);
+
+  // To switch to CSV-driven gallery later, simply uncomment the line below:
+  // loadGalleryFromCSV('units.csv');
+</script>
+
+</body>
+</html>
