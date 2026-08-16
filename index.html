@@ -109,10 +109,55 @@
 
   .gallery-item { position: relative; overflow: hidden; }
   .gallery-item img { transition: transform .6s ease, filter .6s ease; }
-  .gallery-item:hover img { transform: scale(1.08); filter: brightness(.75); }
+  .gallery-item:hover img { transform: scale(1.08); filter: brightness(.7); }
   .gallery-caption {
     position: absolute; inset: auto 0 0 0;
-    background: linear-gradient(to top, rgba(11,19,37,.95), transparent);
+    background: linear-gradient(to top, rgba(11,19,37,.96) 15%, transparent);
+  }
+
+  /* Gallery filter tabs */
+  .filter-tab {
+    transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+  }
+  .filter-tab.active {
+    background-color: #C5A880;
+    color: #0B1325;
+    border-color: #C5A880;
+  }
+
+  /* Gallery card */
+  .work-card {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity .4s ease, transform .4s ease;
+  }
+  .work-card.hide {
+    display: none;
+  }
+  .zoom-btn {
+    opacity: 0;
+    transform: translateY(8px) scale(.9);
+    transition: opacity .3s ease, transform .3s ease;
+  }
+  .gallery-item:hover .zoom-btn,
+  .zoom-btn:focus-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  .spec-chip {
+    background: rgba(197,168,128,.12);
+    border: 1px solid rgba(197,168,128,.35);
+  }
+
+  /* Lightbox */
+  #lightbox { transition: opacity .3s ease; }
+  #lightbox.hidden-lb { opacity: 0; pointer-events: none; }
+  #lightbox-panel {
+    transition: transform .35s ease, opacity .35s ease;
+  }
+  #lightbox.hidden-lb #lightbox-panel {
+    transform: scale(.95) translateY(10px);
+    opacity: 0;
   }
 
   .whatsapp-float {
@@ -337,18 +382,60 @@
 <section id="gallery" class="bg-navy py-20 md:py-28">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <div class="text-center max-w-2xl mx-auto mb-14">
+    <div class="text-center max-w-2xl mx-auto mb-10">
       <span class="text-gold font-display font-bold text-xs md:text-sm tracking-widest">من أعمالنا</span>
       <div class="divider-motif my-3"><i class="fa-solid fa-gem text-gold text-xs"></i></div>
-      <h2 class="font-display font-black text-2xl md:text-4xl text-ivory">نماذج تنفيذ حقيقية</h2>
-      <p class="text-ivory/50 font-body mt-4 text-sm md:text-base">لمحة من الوحدات اللي نفذناها في حي الأشجار وامتداداتها.</p>
+      <h2 class="font-display font-black text-2xl md:text-4xl text-ivory">معرض الأفكار والتغذية البصرية</h2>
+      <p class="text-ivory/50 font-body mt-4 text-sm md:text-base">نماذج ملهمة بنفس مواصفات التنفيذ المعتمدة لدينا — كل كارت موضّح عليه البنود المستخدمة بالضبط.</p>
     </div>
 
-    <div id="gallery-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+    <!-- Filter Tabs -->
+    <div id="gallery-filters" class="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-10 md:mb-12">
+      <button data-filter="all" class="filter-tab active font-body text-xs md:text-sm px-4 md:px-5 py-2 rounded-full border border-gold/40 text-ivory/80">
+        الكل
+      </button>
+      <button data-filter="bathrooms" class="filter-tab font-body text-xs md:text-sm px-4 md:px-5 py-2 rounded-full border border-gold/40 text-ivory/80">
+        الحمامات المودرن
+      </button>
+      <button data-filter="living" class="filter-tab font-body text-xs md:text-sm px-4 md:px-5 py-2 rounded-full border border-gold/40 text-ivory/80">
+        الريسبشن والصالونات
+      </button>
+      <button data-filter="bedrooms" class="filter-tab font-body text-xs md:text-sm px-4 md:px-5 py-2 rounded-full border border-gold/40 text-ivory/80">
+        غرف النوم والماستر
+      </button>
+      <button data-filter="kitchens" class="filter-tab font-body text-xs md:text-sm px-4 md:px-5 py-2 rounded-full border border-gold/40 text-ivory/80">
+        المطابخ الحديثة
+      </button>
+    </div>
+
+    <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
       <!-- injected by JS -->
     </div>
   </div>
 </section>
+
+<!-- Lightbox -->
+<div id="lightbox" class="hidden-lb fixed inset-0 z-[60] flex items-center justify-center p-4 md:p-8 bg-navy/95 backdrop-blur-sm">
+  <button id="lightbox-close" aria-label="إغلاق المعاينة" class="absolute top-5 left-5 md:top-8 md:left-8 w-11 h-11 rounded-full border border-gold/50 text-gold flex items-center justify-center hover:bg-gold hover:text-navy transition-colors">
+    <i class="fa-solid fa-xmark text-lg"></i>
+  </button>
+
+  <div id="lightbox-panel" class="w-full max-w-4xl bg-navy-light rounded-2xl overflow-hidden border border-gold/20 grid grid-cols-1 md:grid-cols-2 max-h-[90vh]">
+    <div class="h-64 md:h-auto">
+      <img id="lightbox-img" src="" alt="" class="w-full h-full object-cover">
+    </div>
+    <div class="p-6 md:p-8 overflow-y-auto">
+      <span id="lightbox-category" class="text-gold text-xs font-body"></span>
+      <h3 id="lightbox-title" class="font-display font-extrabold text-ivory text-xl md:text-2xl mt-2 mb-5"></h3>
+      <ul id="lightbox-specs" class="space-y-3 font-body text-sm text-ivory/80"></ul>
+      <a href="https://wa.me/201091293456?text=أرغب%20في%20تنفيذ%20تصميم%20مشابه%20لهذا%20النموذج" target="_blank" rel="noopener"
+         class="mt-7 inline-flex items-center gap-2 bg-gold text-navy font-display font-bold px-6 py-3 rounded-full hover:bg-gold-light transition-colors text-sm">
+        <i class="fa-brands fa-whatsapp"></i>
+        أرغب في تنفيذ تصميم مشابه
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- ===================== GUARANTEES ===================== -->
 <section id="guarantees" class="bg-ivory py-20 md:py-28">
@@ -503,56 +590,182 @@
   revealItems.forEach(item => revealObserver.observe(item));
 
   /* ============================================================
-     GALLERY DATA MODULE
+     GALLERY DATA MODULE — Real Works & Inspiration Gallery
      ------------------------------------------------------------
-     حالياً البيانات ثابتة (Static Array) داخل الكود.
-     الدالة loadGalleryFromCSV() جاهزة لسحب الوحدات مستقبلاً من
-     ملف CSV خارجي (مثلاً بعد رفعه على Google Sheets / GitHub)
-     بمجرد استدعاء: loadGalleryFromCSV('units.csv')
-     تنسيق الـ CSV المتوقع (سطر أول Header):
-     title,category,image
+     حالياً البيانات ثابتة (Static Array) داخل الكود، ومقسّمة بحقل
+     "category" يطابق قيم data-filter في تبويبات الفلترة أعلاه:
+     bathrooms | living | bedrooms | kitchens
+
+     الدالة loadGalleryFromCSV() جاهزة لسحب الوحدات مستقبلاً من ملف
+     CSV خارجي (مثلاً بعد رفعه على Google Sheets / GitHub) بمجرد
+     استدعاء: loadGalleryFromCSV('units.csv')
+
+     تنسيق الـ CSV المتوقع (سطر أول Header)، وحقل specs بفاصل "|":
+     title,category,categoryLabel,image,specs
+     مثال لسطر:
+     "حمام فندقي فاخر",bathrooms,الحمامات المودرن,https://...,"بند1|بند2|بند3"
      ============================================================ */
 
   const defaultGalleryData = [
     {
-      title: 'ريسبشن ملكي بلمسات ذهبية',
-      category: 'ريسبشن',
-      image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=900&auto=format&fit=crop'
+      title: 'حمام فندقي فاخر بكابينة شاور سيكوريت',
+      category: 'bathrooms',
+      categoryLabel: 'الحمامات المودرن',
+      image: 'https://images.unsplash.com/photo-1771929662486-f793e08f0f16?q=80&w=1200&auto=format&fit=crop',
+      specs: [
+        'كابينة شاور زجاج سيكوريت جرار مصنفر',
+        'نيش حائطي ديكوري مدمج ببروفايل ليد مخفي (Warm Light)',
+        'قاعدة حمام معلقة وصندوق طرد دفن جروهي',
+        'بورسلين رمادي رخامي كبير الحجم',
+        'رخام جرانيت أسود في مساحات مختارة'
+      ]
     },
     {
-      title: 'غرفة ماستر بتصميم هادئ وفاخر',
-      category: 'ماستر بدروم',
-      image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=900&auto=format&fit=crop'
+      title: 'ريسبشن مودرن بتجاليد بديل رخام',
+      category: 'living',
+      categoryLabel: 'الريسبشن والصالونات',
+      image: 'https://images.unsplash.com/photo-1758448755856-01d3add0177b?q=80&w=1200&auto=format&fit=crop',
+      specs: [
+        'تجاليد حوائط بديل رخام أوبن بوك',
+        'تجاليد بديل خشب WPC عازلة للرطوبة',
+        'بيت نور جبسيوم بورد بتصميم هادئ',
+        'مسارات إضاءة Magnetic Track Light قابلة للتوجيه'
+      ]
     },
     {
-      title: 'مطبخ عصري بخامات مقاومة',
-      category: 'مطبخ',
-      image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=900&auto=format&fit=crop'
+      title: 'غرفة ماستر فندقية بإضاءة مريحة',
+      category: 'bedrooms',
+      categoryLabel: 'غرف النوم والماستر',
+      image: 'https://images.unsplash.com/photo-1752407828561-2450ced77979?q=80&w=1200&auto=format&fit=crop',
+      specs: [
+        'بانوهات فيوتك كلاسيك خلف رأس السرير',
+        'أرضيات HDF ألماني مقاومة للخدش',
+        'إضاءات مخفية دافئة ومريحة للعين',
+        'تصميم هادئ بخطوط نظيفة يناسب الفنادق'
+      ]
     },
     {
-      title: 'حمام معلق بأدوات صحية فاخرة',
-      category: 'حمام',
-      image: 'https://images.unsplash.com/photo-1620626011761-996317b8d101?q=80&w=900&auto=format&fit=crop'
+      title: 'مطبخ أكريليك مودرن بلمسة عصرية',
+      category: 'kitchens',
+      categoryLabel: 'المطابخ الحديثة',
+      image: 'https://images.unsplash.com/photo-1722605090433-41d1183a792d?q=80&w=1200&auto=format&fit=crop',
+      specs: [
+        'رخام كوارتز مقاوم للبقع والحرارة',
+        'مفصلات هيدروليك بلوم نمساوي أصلية',
+        'ليد بروفايل تحت الوحدات العلوية',
+        'وحدات أكريليك عالية اللمعان سهلة التنظيف'
+      ]
     }
   ];
 
-  function renderGallery(items) {
-    const grid = document.getElementById('gallery-grid');
-    grid.innerHTML = items.map(item => `
-      <div class="gallery-item fade-up rounded-xl aspect-[3/4] bg-navy-light">
-        <img src="${item.image}" alt="${item.title}" loading="lazy" class="w-full h-full object-cover">
-        <div class="gallery-caption p-4">
-          <span class="block text-gold text-[11px] font-body mb-1">${item.category}</span>
-          <span class="block text-ivory text-sm font-display font-bold leading-snug">${item.title}</span>
+  let currentGalleryData = [];
+
+  function cardMarkup(item, index) {
+    return `
+      <div class="work-card fade-up" data-category="${item.category}">
+        <div class="gallery-item rounded-xl aspect-[4/5] bg-navy-light cursor-pointer" data-index="${index}" role="button" tabindex="0" aria-label="معاينة ${item.title}">
+          <img src="${item.image}" alt="${item.title}" loading="lazy" class="w-full h-full object-cover">
+
+          <button class="zoom-btn absolute top-3 left-3 w-10 h-10 rounded-full bg-navy/80 border border-gold/50 text-gold flex items-center justify-center" data-index="${index}" aria-label="تكبير المعاينة">
+            <i class="fa-solid fa-magnifying-glass-plus text-sm"></i>
+          </button>
+
+          <div class="gallery-caption p-4">
+            <span class="block text-gold text-[11px] font-body mb-1">${item.categoryLabel}</span>
+            <span class="block text-ivory text-sm font-display font-bold leading-snug mb-2">${item.title}</span>
+          </div>
+        </div>
+
+        <!-- شريط المواصفات التنفيذي -->
+        <div class="flex flex-wrap gap-1.5 mt-3">
+          ${item.specs.slice(0, 3).map(spec => `<span class="spec-chip text-gold text-[10px] md:text-[11px] font-body px-2.5 py-1 rounded-full">${spec}</span>`).join('')}
+          ${item.specs.length > 3 ? `<span class="spec-chip text-gold text-[10px] md:text-[11px] font-body px-2.5 py-1 rounded-full">+${item.specs.length - 3}</span>` : ''}
         </div>
       </div>
-    `).join('');
+    `;
+  }
+
+  function renderGallery(items) {
+    currentGalleryData = items;
+    const grid = document.getElementById('gallery-grid');
+    grid.innerHTML = items.map((item, i) => cardMarkup(item, i)).join('');
 
     // re-observe newly injected fade-up items
     grid.querySelectorAll('.fade-up').forEach(item => revealObserver.observe(item));
+
+    // bind zoom / card click -> lightbox
+    grid.querySelectorAll('[data-index]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openLightbox(parseInt(el.getAttribute('data-index'), 10));
+      });
+      el.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') openLightbox(parseInt(el.getAttribute('data-index'), 10));
+      });
+    });
+
+    applyActiveFilter();
   }
 
-  // Very small CSV parser (no external commas inside quotes assumed simple format)
+  // ---------- Filter Tabs ----------
+  let activeFilter = 'all';
+  const filterButtons = document.querySelectorAll('.filter-tab');
+
+  function applyActiveFilter() {
+    document.querySelectorAll('.work-card').forEach(card => {
+      const matches = activeFilter === 'all' || card.getAttribute('data-category') === activeFilter;
+      card.classList.toggle('hide', !matches);
+    });
+  }
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeFilter = btn.getAttribute('data-filter');
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyActiveFilter();
+    });
+  });
+
+  // ---------- Lightbox ----------
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxTitle = document.getElementById('lightbox-title');
+  const lightboxCategory = document.getElementById('lightbox-category');
+  const lightboxSpecs = document.getElementById('lightbox-specs');
+  const lightboxClose = document.getElementById('lightbox-close');
+
+  function openLightbox(index) {
+    const item = currentGalleryData[index];
+    if (!item) return;
+    lightboxImg.src = item.image;
+    lightboxImg.alt = item.title;
+    lightboxTitle.textContent = item.title;
+    lightboxCategory.textContent = item.categoryLabel;
+    lightboxSpecs.innerHTML = item.specs.map(spec => `
+      <li class="flex items-start gap-3">
+        <i class="fa-solid fa-check text-gold mt-1"></i>
+        <span>${spec}</span>
+      </li>
+    `).join('');
+    lightbox.classList.remove('hidden-lb');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.add('hidden-lb');
+    document.body.style.overflow = '';
+  }
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // Very small CSV parser (simple format, no quoted-comma support beyond specs field)
   function parseCSV(text) {
     const lines = text.trim().split('\n');
     const headers = lines.shift().split(',').map(h => h.trim());
@@ -560,6 +773,7 @@
       const values = line.split(',').map(v => v.trim());
       const obj = {};
       headers.forEach((h, i) => obj[h] = values[i]);
+      obj.specs = obj.specs ? obj.specs.split('|').map(s => s.trim()) : [];
       return obj;
     });
   }
