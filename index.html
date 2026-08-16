@@ -149,6 +149,31 @@
     border: 1px solid rgba(197,168,128,.35);
   }
 
+  /* Moodboard filter tabs (light section) */
+  .mfilter-tab {
+    transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+  }
+  .mfilter-tab.active {
+    background-color: #0B1325;
+    color: #C5A880;
+    border-color: #0B1325;
+  }
+
+  /* Moodboard cards */
+  .mood-card {
+    transition: opacity .4s ease, transform .4s ease;
+    border: 1px solid rgba(11,19,37,.08);
+  }
+  .mood-card.hide { display: none; }
+  .mood-card:hover { transform: translateY(-5px); box-shadow: 0 25px 50px -25px rgba(11,19,37,.25); }
+  .mood-card .mood-img { transition: transform .6s ease; }
+  .mood-card:hover .mood-img { transform: scale(1.06); }
+
+  .material-badge {
+    background: #0B1325;
+    border: 1px solid rgba(197,168,128,.4);
+  }
+
   /* Lightbox */
   #lightbox { transition: opacity .3s ease; }
   #lightbox.hidden-lb { opacity: 0; pointer-events: none; }
@@ -201,6 +226,7 @@
         <a href="#hero" class="hover:text-gold transition-colors">الرئيسية</a>
         <a href="#packages" class="hover:text-gold transition-colors">الباقات</a>
         <a href="#gallery" class="hover:text-gold transition-colors">المعرض</a>
+        <a href="#moodboard" class="hover:text-gold transition-colors">إلهام التصميم</a>
         <a href="#guarantees" class="hover:text-gold transition-colors">الضمانات</a>
         <a href="#footer" class="hover:text-gold transition-colors">تواصل معنا</a>
       </nav>
@@ -229,6 +255,7 @@
       <a href="#hero" class="mobile-link py-1">الرئيسية</a>
       <a href="#packages" class="mobile-link py-1">الباقات</a>
       <a href="#gallery" class="mobile-link py-1">المعرض</a>
+      <a href="#moodboard" class="mobile-link py-1">إلهام التصميم</a>
       <a href="#guarantees" class="mobile-link py-1">الضمانات</a>
       <a href="#footer" class="mobile-link py-1">تواصل معنا</a>
     </nav>
@@ -436,6 +463,42 @@
     </div>
   </div>
 </div>
+
+<!-- ===================== MOODBOARD & DESIGN STYLES ===================== -->
+<section id="moodboard" class="bg-ivory py-20 md:py-28 border-t border-navy/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <span class="text-gold-dark font-display font-bold text-xs md:text-sm tracking-widest">Moodboard & Design Styles</span>
+      <div class="divider-motif my-3"><i class="fa-solid fa-gem text-gold text-xs"></i></div>
+      <h2 class="font-display font-black text-2xl md:text-4xl text-navy">إلهام معماري بخامات وبراندات السوق المصري</h2>
+      <p class="text-navy/60 font-body mt-4 text-sm md:text-base max-w-xl mx-auto">اختر الطراز اللي يعجبك من واقع تنفيذاتنا الفعلية بأكتوبر والشيخ زايد، بنفس الخامات والبراندات المتاحة في السوق.</p>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div id="moodboard-filters" class="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-10 md:mb-12">
+      <button data-mfilter="all" class="mfilter-tab active font-body text-xs md:text-sm px-4 md:px-5 py-2 rounded-full border border-gold/50 text-navy/70">
+        الكل
+      </button>
+      <button data-mfilter="classic" class="mfilter-tab font-body text-xs md:text-sm px-4 md:px-5 py-2 rounded-full border border-gold/50 text-navy/70">
+        نيو كلاسيك وبانوهات
+      </button>
+      <button data-mfilter="modern" class="mfilter-tab font-body text-xs md:text-sm px-4 md:px-5 py-2 rounded-full border border-gold/50 text-navy/70">
+        مودرن وماتيريال ميكس
+      </button>
+      <button data-mfilter="hotel-bathrooms" class="mfilter-tab font-body text-xs md:text-sm px-4 md:px-5 py-2 rounded-full border border-gold/50 text-navy/70">
+        حمامات فندقية وسباكة دفن
+      </button>
+      <button data-mfilter="kitchens" class="mfilter-tab font-body text-xs md:text-sm px-4 md:px-5 py-2 rounded-full border border-gold/50 text-navy/70">
+        مطابخ ودريسنج مودرن
+      </button>
+    </div>
+
+    <div id="moodboard-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
+      <!-- injected by JS -->
+    </div>
+  </div>
+</section>
 
 <!-- ===================== GUARANTEES ===================== -->
 <section id="guarantees" class="bg-ivory py-20 md:py-28">
@@ -797,6 +860,188 @@
 
   // To switch to CSV-driven gallery later, simply uncomment the line below:
   // loadGalleryFromCSV('units.csv');
+
+  /* ============================================================
+     MOODBOARD & DESIGN STYLES MODULE
+     ------------------------------------------------------------
+     إلهام معماري تفاعلي مقسّم حسب طراز التصميم، بخامات وبراندات
+     متاحة فعلياً في سوق أكتوبر والشيخ زايد. كل عنصر يحمل:
+     style / styleLabel (تطابق data-mfilter بالأعلى) + title +
+     specs (بنود تنفيذية) + image + waText (نص واتساب مخصص).
+     ============================================================ */
+
+  const moodboardData = [
+    {
+      style: 'classic',
+      styleLabel: 'نيو كلاسيك وبانوهات',
+      title: 'صالون وبانوهات نيو كلاسيك',
+      image: 'https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=800&q=80',
+      specs: [
+        'بانوهات فيوتك أصلية مقاومة للرطوبة',
+        'دهانات جوتن فينوماستيك (Fenomastic Pale Lime / Beige)',
+        'إضاءات ليد وورم 3000K لإحساس دافئ'
+      ]
+    },
+    {
+      style: 'classic',
+      styleLabel: 'نيو كلاسيك وبانوهات',
+      title: 'غرفة ماستر نيو كلاسيك',
+      image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80',
+      specs: [
+        'أرضيات HDF ألماني ماركة Krono',
+        'تجاليد قطيفة على الهيدبورد',
+        'مسارات سبوتات غاطسة فينوس'
+      ]
+    },
+    {
+      style: 'modern',
+      styleLabel: 'مودرن وماتيريال ميكس',
+      title: 'ريسبشن تجاليد WPC',
+      image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80',
+      specs: [
+        'بديل خشب WPC مع بديل رخام PVC مقاس 122×244',
+        'بروفايل ليد Magnetic Track Light',
+        'بورسلين الجوهرة / كليوباترا مقاس 60×120 فرز أول'
+      ]
+    },
+    {
+      style: 'modern',
+      styleLabel: 'مودرن وماتيريال ميكس',
+      title: 'صالة معيشة مينيمال',
+      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
+      specs: [
+        'دهانات جوتن صامتة بدرجات هادئة',
+        'شاشة معلقة مع رف طاير',
+        'خلفية ليد خفيفة خلف الشاشة'
+      ]
+    },
+    {
+      style: 'hotel-bathrooms',
+      styleLabel: 'حمامات فندقية وسباكة دفن',
+      title: 'حمام ماستر زجاجي',
+      image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80',
+      specs: [
+        'كابينة شاور سيكوريت 10مم مصنفر',
+        'نيش حائطي بسباكة دفن جروهي / ديورافيت',
+        'شريط ليد مقاوم للماء IP68',
+        'سيراميك ديكوري رمادي'
+      ]
+    },
+    {
+      style: 'hotel-bathrooms',
+      styleLabel: 'حمامات فندقية وسباكة دفن',
+      title: 'حمام ضيوف فاخر',
+      image: 'https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=800&q=80',
+      specs: [
+        'حوض ديكوري فوق الرخام',
+        'خلاطات دفن ألماني أسود مط',
+        'مرايا ليد تاتش سنسور'
+      ]
+    },
+    {
+      style: 'hotel-bathrooms',
+      styleLabel: 'حمامات فندقية وسباكة دفن',
+      title: 'حمام عملي',
+      image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=800&q=80',
+      specs: [
+        'بانيو قدم رخام طبيعي مانع للانزلاق',
+        'سيراميك قطع ليزر بدقة تركيب عالية'
+      ]
+    },
+    {
+      style: 'kitchens',
+      styleLabel: 'مطابخ ودريسنج مودرن',
+      title: 'مطبخ بولاك / أكريليك تركي',
+      image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80',
+      specs: [
+        'رخام كوارتز صناعي مقاوم للحرارة والبقع',
+        'مفصلات بلوم نمساوي سوفت كلوز',
+        'إضاءة ليد أسفل العلب العلوية'
+      ]
+    },
+    {
+      style: 'kitchens',
+      styleLabel: 'مطابخ ودريسنج مودرن',
+      title: 'مطبخ خشب كونتر جودوود وقشرة أرو',
+      image: 'https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=800&q=80',
+      specs: [
+        'تصميم أوبن كيتشن متكامل',
+        'بار رخام مستورد',
+        'كونتر جودوود وقشرة أرو طبيعية'
+      ]
+    },
+    {
+      style: 'kitchens',
+      styleLabel: 'مطابخ ودريسنج مودرن',
+      title: 'دريسنج روم زجاجي',
+      image: 'https://images.unsplash.com/photo-1558997519-83ea9252edf8?auto=format&fit=crop&w=800&q=80',
+      specs: [
+        'ألومنيوم قطاع جورجيا مع زجاج فاميه',
+        'إضاءة ليد داخلية على حساس حركة'
+      ]
+    }
+  ];
+
+  function moodCardMarkup(item) {
+    const waText = encodeURIComponent(`أرغب في معرفة تكلفة تشطيب على طراز: ${item.title}`);
+    return `
+      <div class="mood-card fade-up bg-white rounded-2xl overflow-hidden shadow-sm" data-style="${item.style}">
+        <div class="relative h-56 overflow-hidden">
+          <img src="${item.image}" alt="${item.title}" loading="lazy" class="mood-img w-full h-full object-cover">
+          <span class="absolute top-3 right-3 material-badge text-gold text-[10px] font-body px-3 py-1.5 rounded-full">
+            الخامات: جوتن | السويدي | فيوتك | جروهي
+          </span>
+        </div>
+        <div class="p-6">
+          <span class="text-gold-dark text-[11px] font-body">${item.styleLabel}</span>
+          <h3 class="font-display font-extrabold text-navy text-lg mt-1 mb-4">${item.title}</h3>
+
+          <ul class="space-y-2 font-body text-sm text-navy/65 mb-6">
+            ${item.specs.map(spec => `
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-gold-dark mt-1 text-xs"></i>
+                <span>${spec}</span>
+              </li>
+            `).join('')}
+          </ul>
+
+          <a href="https://wa.me/201091293456?text=${waText}" target="_blank" rel="noopener"
+             class="flex items-center justify-center gap-2 border border-navy/15 text-navy font-display font-bold py-2.5 rounded-full hover:bg-navy hover:text-gold hover:border-navy transition-colors text-xs md:text-sm">
+            <i class="fa-brands fa-whatsapp"></i>
+            احسب تكلفة تشطيب الطراز ده واتساب
+          </a>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderMoodboard(items) {
+    const grid = document.getElementById('moodboard-grid');
+    grid.innerHTML = items.map(moodCardMarkup).join('');
+    grid.querySelectorAll('.fade-up').forEach(el => revealObserver.observe(el));
+    applyMoodFilter();
+  }
+
+  let activeMoodFilter = 'all';
+  const moodFilterButtons = document.querySelectorAll('.mfilter-tab');
+
+  function applyMoodFilter() {
+    document.querySelectorAll('.mood-card').forEach(card => {
+      const matches = activeMoodFilter === 'all' || card.getAttribute('data-style') === activeMoodFilter;
+      card.classList.toggle('hide', !matches);
+    });
+  }
+
+  moodFilterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeMoodFilter = btn.getAttribute('data-mfilter');
+      moodFilterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyMoodFilter();
+    });
+  });
+
+  renderMoodboard(moodboardData);
 </script>
 
 </body>
